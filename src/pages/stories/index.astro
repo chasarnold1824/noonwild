@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import StoryCard from '../../components/StoryCard.astro';
+import { allStories } from '../../lib';
+const stories = await allStories();
+---
+<Base title="Stories" description="Destination guides and true explorer stories from the Noon Wild Journal.">
+  <section class="wrap page-head">
+    <span class="caps tag">The journal</span>
+    <h1>Stories from the wild</h1>
+    <p>Destination guides, expert advice and the true stories of the explorers who went first, with how to follow them today.</p>
+  </section>
+  <section class="wrap sec"><div class="cards">{stories.map(s => <StoryCard story={s} />)}</div></section>
+</Base>

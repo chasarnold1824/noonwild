@@ -1,0 +1,60 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import StoryCard from '../../components/StoryCard.astro';
+import { allStories, readingTime, fmtDate } from '../../lib';
+
+export async function getStaticPaths() {
+  const stories = await getCollection('stories', s => !s.data.draft);
+  return stories.map(story => ({ params: { slug: story.id }, props: { story } }));
+}
+const { story } = Astro.props;
+const d = story.data;
+const { Content } = await render(story);
+const more = (await allStories()).filter(s => s.id !== story.id).slice(0, 3);
+---
+<Base title={d.title} description={d.dek} image={d.image}>
+  <article>
+    <header class="a-hero">
+      <img src={d.image} alt={d.imageAlt} style={`object-position: ${d.imagePosition}`}>
+      <div class="wrap">
+        <span class="caps">{d.category} · {d.region}</span>
+        <h1>{d.title}</h1>
+        <p class="dek">{d.dek}</p>
+        <div class="byline"><span>The Noon Wild Journal</span><span>{fmtDate(d.date)}</span><span>{readingTime(story.body)} min read</span></div>
+      </div>
+      <span class="credit">{d.imageCredit}</span>
+    </header>
+
+    <div class="wrap a-layout">
+      <div>
+        <div class="prose"><Content /></div>
+        {d.sources.length > 0 && (
+          <section class="sources" aria-labelledby="src-title">
+            <h2 id="src-title">Sources</h2>
+            <ol>{d.sources.map(s => <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a></li>)}</ol>
+          </section>
+        )}
+      </div>
+      <aside class="aside">
+        {d.atAGlance.length > 0 && (
+          <div class="glance">
+            <span class="caps tag">At a glance</span>
+            <dl>{d.atAGlance.map(i => <div><dt>{i.label}</dt><dd>{i.value}</dd></div>)}</dl>
+          </div>
+        )}
+        <a class="btn btn--brass" href={`/plan/?story=${story.id}`}>Plan this trip</a>
+      </aside>
+    </div>
+  </article>
+
+  <section class="sec journal-band" aria-labelledby="more-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="caps tag">The journal</span><h2 id="more-title">More stories</h2></div>
+        <a class="link" href="/stories/">See all stories <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+      <div class="cards">{more.map(s => <StoryCard story={s} />)}</div>
+    </div>
+  </section>
+</Base>

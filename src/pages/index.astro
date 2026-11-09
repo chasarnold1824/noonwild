@@ -1,0 +1,102 @@
+---
+import Base from '../layouts/Base.astro';
+import StoryCard from '../components/StoryCard.astro';
+import { allStories } from '../lib';
+const stories = await allStories();
+const featured = stories.find(s => s.data.featured && !s.data.draft);
+const grid = stories.filter(s => s !== featured).slice(0, 6);
+---
+<Base>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <img src="/img/lion-dusk.jpg" alt="A young lion lies in tall grass at dusk, looking toward the camera while the pride sleeps around it.">
+    <div class="wrap hero-body">
+      <span class="caps eyebrow">Luxury travel, guided by the great explorers</span>
+      <h1 id="hero-title">Go where the <em>explorers</em> went.</h1>
+      <div class="hero-foot">
+        <p class="dek">Private, five-star journeys to the world's wildest places, planned by advisors who know the stories behind them.</p>
+        <div class="actions">
+          <a class="btn btn--brass" href="/plan/">Plan your trip</a>
+          <a class="btn btn--ghost" href="/stories/">Read the stories</a>
+        </div>
+      </div>
+    </div>
+    <span class="credit">Photograph by Chas Arnold</span>
+  </section>
+
+  <!-- INTRO -->
+  <section class="wrap intro" aria-label="About Noon Wild">
+    <img src="/img/mark.png" alt="">
+    <p>Every wild place has a story. We plan the trip that lets you <em>stand inside it</em>, from Rwanda's volcanoes to Yellowstone in winter.</p>
+  </section>
+
+  
+  {featured && (
+  <section class="wrap" aria-label="Featured guide" style="padding-bottom: clamp(64px, 8vw, 112px)">
+    <a class="feature" href={`/stories/${featured.id}/`}>
+      <figure class="ph" style="--ar: 3/2"><img src={featured.data.image} alt={featured.data.imageAlt} style={`object-position: ${featured.data.imagePosition}`}></figure>
+      <div class="copy">
+        <span class="caps tag">{featured.data.category} · {featured.data.region}</span>
+        <h2>{featured.data.title}</h2>
+        <p class="dek">{featured.data.dek}</p>
+        <span class="link">Read the guide <span class="arr" aria-hidden="true">→</span></span>
+      </div>
+    </a>
+  </section>
+  )}
+
+  <section class="sec journal-band" id="journal" aria-labelledby="journal-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="caps tag">The journal</span><h2 id="journal-title">Stories from the wild</h2></div>
+        <a class="link" href="/stories/">See all stories <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+      <div class="cards">
+        {grid.map(s => <StoryCard story={s} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTINATIONS -->
+  <section class="sec" id="destinations" aria-labelledby="dest-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="caps tag">Destinations</span><h2 id="dest-title">Where we travel</h2></div>
+      </div>
+      <div class="dest">
+        <a class="tile" href="/stories/"><figure class="ph"><img src="/img/lions-greeting.jpg" alt="A lioness and a young lion touching noses in the grass." loading="lazy" style="object-position: 62% 50%"></figure><div class="label"><b>East Africa</b><span>Rwanda, Uganda, Kenya</span></div></a>
+        <a class="tile" href="/stories/"><figure class="ph"><img src="/img/elk-snow.jpg" alt="Elk standing in snow and dry grass." loading="lazy" style="object-position: 55% 60%"></figure><div class="label"><b>Yellowstone</b><span>Wyoming and Montana</span></div></a>
+        <a class="tile" href="/stories/"><figure class="ph"><img src="/img/tree-frog.jpg" alt="A red-eyed tree frog on a leaf at night." loading="lazy" style="object-position: 50% 40%"></figure><div class="label"><b>Central America</b><span>Guatemala, Honduras</span></div></a>
+        <a class="tile" href="/stories/"><figure class="ph"><img src="/img/polar-bear.jpg" alt="A polar bear walking across a floe of pack ice." loading="lazy" style="object-position: 68% 50%"></figure><div class="label"><b>The Arctic</b><span>Svalbard</span></div></a>
+        <a class="tile" href="/stories/"><figure class="ph"><img src="/img/sea-lion.jpg" alt="A sea lion resting on black lava rock with surf behind." loading="lazy" style="object-position: 40% 50%"></figure><div class="label"><b>Galápagos</b><span>Ecuador</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="sec how-band" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="caps">How it works</span><h2 id="how-title">Your expedition, arranged</h2></div>
+      </div>
+      <div class="steps">
+        <div><span class="n">1</span><h3>Tell us where you're drawn</h3><p>A place, a story, an animal you've always wanted to see. Share your dates and who's coming.</p></div>
+        <div><span class="n">2</span><h3>We design the journey</h3><p>Your advisor builds a private itinerary around the best camps, lodges and guides, with every flight and permit arranged.</p></div>
+        <div><span class="n">3</span><h3>Travel, then see your impact</h3><p>Go with an advisor on call. When you return, you'll see where your trip's conservation contribution went.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="banner" id="plan" aria-labelledby="plan-title">
+    <img src="/img/bighorn.jpg" alt="" loading="lazy">
+    <div class="wrap">
+      <img src="/img/mark.png" alt="" style="width:40px;height:auto">
+      <h2 id="plan-title">Tell us about your next expedition.</h2>
+      <p>An advisor will reply with ideas, seasons and a first itinerary, built around the places and stories that pull you.</p>
+      <a class="btn btn--brass" href="/plan/">Get started</a>
+    </div>
+  </section>
+
+</Base>

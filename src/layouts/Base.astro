@@ -1,0 +1,70 @@
+---
+import '@fontsource/cormorant-garamond/400.css';
+import '@fontsource/cormorant-garamond/500.css';
+import '@fontsource/cormorant-garamond/400-italic.css';
+import '@fontsource/cormorant-garamond/500-italic.css';
+import '@fontsource/marcellus/400.css';
+import '@fontsource/jost/300.css';
+import '@fontsource/jost/400.css';
+import '@fontsource/jost/500.css';
+import '../styles/global.css';
+
+interface Props { title?: string; description?: string; image?: string; }
+const {
+  title,
+  description = "Private, five-star journeys to the world's wildest places, and the true stories behind them. An affiliate of Noon Travel.",
+  image = '/img/lion-dusk.jpg',
+} = Astro.props;
+const fullTitle = title ? `${title} | Noon Wild` : 'Noon Wild | Luxury travel, guided by the great explorers';
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{fullTitle}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonical}>
+  <link rel="icon" href="/img/mark.png">
+  <meta property="og:title" content={fullTitle}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1E3126">
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-row">
+      <a class="logo" href="/" aria-label="Noon Wild home"><img src="/img/logo-light.png" alt="Noon Wild"></a>
+      <nav class="nav caps" aria-label="Main">
+        <a href="/stories/">Stories</a>
+        <a href="/#destinations">Destinations</a>
+        <a href="/#how">How it works</a>
+      </nav>
+      <a class="btn btn--brass" href="/plan/">Plan your trip</a>
+    </div>
+  </header>
+
+  <main id="top"><slot /></main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <a class="logo" href="/" aria-label="Noon Wild home"><img src="/img/logo-light.png" alt="Noon Wild"></a>
+          <p>Luxury journeys to the world's wildest places, and the true stories behind them. An affiliate of Noon Travel.</p>
+        </div>
+        <div><h4>Explore</h4><ul><li><a href="/stories/">Stories</a></li><li><a href="/#destinations">Destinations</a></li><li><a href="/#how">How it works</a></li></ul></div>
+        <div><h4>Connect</h4><ul><li><a href="/plan/">Plan your trip</a></li><li>Instagram</li></ul></div>
+      </div>
+      <div class="fine">
+        <span>© {new Date().getFullYear()} Noon Wild. All rights reserved.</span>
+        <span>Photographs by Chas Arnold and Unsplash contributors. Some images are illustrations.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

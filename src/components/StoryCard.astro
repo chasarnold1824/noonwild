@@ -1,0 +1,16 @@
+---
+interface Props { story: any; }
+const { story } = Astro.props;
+const d = story.data;
+const soon = d.draft;
+const Tag = soon ? 'div' : 'a';
+---
+<Tag class={`card${soon ? ' soon' : ''}`} href={soon ? undefined : `/stories/${story.id}/`}>
+  <figure class="ph" style="--ar: 4/5">
+    <img src={d.image} alt={d.imageAlt} loading="lazy" style={`object-position: ${d.imagePosition}`}>
+    {soon && <span class="caps soon-flag">Coming soon</span>}
+  </figure>
+  <span class="caps tag">{d.category} · {d.region}</span>
+  <h3>{d.title}</h3>
+  <p>{d.dek}</p>
+</Tag>
