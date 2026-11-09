@@ -23,6 +23,8 @@ faq:
   - q: Where should you fly into?
     a: Bozeman, Montana. From there it is a straight drive south through the Paradise Valley to the North Entrance at Gardiner.
 featured: true
+related:
+  - rwanda-gorilla-trek
 atAGlance:
   - label: Fly into
     value: Bozeman, Montana, then drive south through the Paradise Valley to Yellowstone's North Entrance at Gardiner.
