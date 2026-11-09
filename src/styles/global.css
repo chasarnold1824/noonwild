@@ -349,3 +349,22 @@ a.dest-guide:hover > img { transform: scale(1.04); }
 @media (min-width: 1280px) { .dest-card h3 { font-size: 28px; } }
 .dest-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,.18); }
 .dest-card:hover img { transform: scale(1.04); }
+
+/* ---------- Travel montage ---------- */
+.montage { position: relative; min-height: 100svh; display: grid; align-items: center; overflow: hidden; background: #0C1610; color: var(--on-dark); }
+.montage-stage { position: absolute; inset: 0; }
+.m-vid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.06); transition: opacity .55s ease, transform 3.2s linear; }
+.m-vid.is-on { opacity: 1; transform: scale(1); }
+.m-shade { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 55%, rgba(12,22,16,.15), rgba(12,22,16,.62) 75%), linear-gradient(0deg, rgba(12,22,16,.75), transparent 45%), linear-gradient(180deg, rgba(12,22,16,.45), transparent 30%); }
+.montage-copy { position: relative; z-index: 2; display: grid; gap: 20px; justify-items: start; padding-block: 140px 160px; }
+.montage-copy h2 { max-width: 11ch; color: var(--on-dark); text-shadow: 0 2px 30px rgba(0,0,0,.35); }
+.m-kicker { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #D9B76E; }
+.m-sub { max-width: 46ch; font-size: 18px; line-height: 28px; color: rgba(243,235,219,.86); }
+.montage-foot { position: absolute; left: 0; right: 0; bottom: 28px; z-index: 2; display: flex; align-items: center; gap: 20px; }
+.m-label { min-width: 0; flex: 0 1 auto; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: rgba(243,235,219,.85); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.m-bars { display: flex; gap: 4px; flex: 1; max-width: 360px; margin-left: auto; }
+.m-bars i { flex: 1; height: 2px; background: rgba(243,235,219,.22); border-radius: 2px; transition: background .4s; }
+.m-bars i.on { background: #D9B76E; }
+.m-credit { font-size: 11px; color: rgba(243,235,219,.5); white-space: nowrap; }
+@media (max-width: 767px) { .m-bars { display: none; } .montage-copy { padding-block: 110px 120px; } .m-sub { font-size: 16px; line-height: 25px; } }
+@media (prefers-reduced-motion: reduce) { .m-vid { display: none; } .montage-stage { background: url(/img/lion-dusk.jpg) center/cover; } }

@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import RowCard from '../components/RowCard.astro';
+import Montage from '../components/Montage.astro';
 import { allStories, unsplash, fmtDate, readingTime } from '../lib';
 import { cdn } from '../img.mjs';
 
@@ -55,6 +56,9 @@ const steps = [
       </div>
     </div>
   </section>
+
+  <!-- MONTAGE -->
+  <Montage />
 
   <!-- WHY: sticky stacked image cards -->
   <section class="stack" style={`--n:${why.length}`} data-theme="dark">

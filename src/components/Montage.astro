@@ -1,0 +1,83 @@
+---
+// Full-bleed travel montage: short cuts from free-license Pexels footage
+// (pexels.com/license), streamed from Pexels' CDN and crossfaded in the browser.
+const V = 'https://videos.pexels.com/video-files/';
+const clips = [
+  { src: '39730323/16941596_1280_720_30fps.mp4', at: 2, label: 'Torres del Paine, Chile' },
+  { src: '37829461/16046101_1280_720_30fps.mp4', at: 1, label: 'Volcanic eruption, Iceland' },
+  { src: '29171868/12597608_1280_720_30fps.mp4', at: 1, label: 'Elephants at sunset' },
+  { src: '8849239/8849239-hd_1280_720_24fps.mp4', at: 1, label: 'A tented suite' },
+  { src: '35969886/15251196_1280_720_30fps.mp4', at: 2, label: 'The Amazon from the air' },
+  { src: '6299771/6299771-hd_1280_720_30fps.mp4', at: 1, label: 'Polar ice' },
+  { src: '39157033/16662850_1280_720_25fps.mp4', at: 1, label: 'Cheetah on the savanna' },
+  { src: '36867544/15619023_1280_720_30fps.mp4', at: 1, label: 'An infinity pool above the forest' },
+  { src: '31280471/13358079_1280_720_25fps.mp4', at: 1, label: 'The northern lights' },
+  { src: '14556448/14556448-hd_1280_720_30fps.mp4', at: 1, label: 'Zebras, Masai Mara' },
+  { src: '32987075/14058611_1280_720_60fps.mp4', at: 1, label: 'Glacier ice' },
+  { src: '39576516/16868146_1280_720_30fps.mp4', at: 1, label: 'A lakeside terrace at dusk' },
+  { src: '11563618/11563618-hd_1280_720_30fps.mp4', at: 2, label: 'Desert dunes' },
+  { src: '17983734/17983734-hd_1280_720_30fps.mp4', at: 6, label: 'Sunrise over the Brandberg, Namibia' },
+].map(c => ({ ...c, src: V + c.src }));
+---
+<section class="montage" data-theme="dark" aria-label="Noon Wild travel montage">
+  <div class="montage-stage" aria-hidden="true">
+    <video class="m-vid is-on" muted playsinline preload="none" poster="/img/lion-dusk.jpg"></video>
+    <video class="m-vid" muted playsinline preload="none"></video>
+    <div class="m-shade"></div>
+  </div>
+  <div class="montage-copy container">
+    <p class="m-kicker reveal">Noon Wild</p>
+    <h2 class="t-h1 words">The world, still wild.</h2>
+    <p class="m-sub reveal" style="--d:.25s">Gorillas in the mist, ice that calves into the sea, a fire under a sky full of stars, and a five-star bed at the end of the day.</p>
+    <a class="btn btn-solid reveal" style="--d:.35s" href="/plan/">Plan your expedition</a>
+  </div>
+  <div class="montage-foot container">
+    <span class="m-label" aria-live="off"></span>
+    <span class="m-bars" aria-hidden="true">{clips.map(() => <i></i>)}</span>
+    <span class="m-credit">Footage: Pexels</span>
+  </div>
+  <script type="application/json" id="montage-clips" set:html={JSON.stringify(clips)}></script>
+</section>
+
+<script>
+  const root = document.querySelector<HTMLElement>('.montage');
+  if (root) {
+    const clips: { src: string; at: number; label: string }[] = JSON.parse(document.getElementById('montage-clips')!.textContent!);
+    const [a, b] = Array.from(root.querySelectorAll<HTMLVideoElement>('.m-vid'));
+    const label = root.querySelector<HTMLElement>('.m-label')!;
+    const bars = Array.from(root.querySelectorAll<HTMLElement>('.m-bars i'));
+    const CUT = 2700; // ms per shot
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let n = 0, front = a, back = b, timer: number | undefined, running = false;
+
+    // Load a clip into a video element and seek to its in-point. Resolves when ready (or after 2.5s, so a slow clip never stalls the cut).
+    const prime = (v: HTMLVideoElement, k: number) => new Promise<void>(res => {
+      const c = clips[k];
+      const ready = () => { try { v.currentTime = c.at; } catch {} res(); };
+      if (v.dataset.k === String(k) && v.readyState >= 2) return ready();
+      v.dataset.k = String(k); v.preload = 'auto'; v.src = c.src;
+      v.addEventListener('loadeddata', ready, { once: true });
+      setTimeout(res, 2500);
+    });
+    async function cutTo(k: number) {
+      await prime(back, k);
+      back.play().catch(() => {});
+      back.classList.add('is-on'); front.classList.remove('is-on');
+      const old = front; setTimeout(() => old.pause(), 650);
+      [front, back] = [back, front];
+      label.textContent = clips[k].label;
+      bars.forEach((el, x) => el.classList.toggle('on', x === k));
+      prime(back, (k + 1) % clips.length); // warm the next shot
+    }
+    async function loop() {
+      if (!running) return;
+      await cutTo(n);
+      n = (n + 1) % clips.length;
+      timer = window.setTimeout(loop, CUT);
+    }
+    function start() { if (running || reduce) return; running = true; loop(); }
+    function stop() { running = false; clearTimeout(timer); a.pause(); b.pause(); }
+    new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? start() : stop()), { threshold: 0.2 }).observe(root);
+    document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); });
+  }
+</script>
