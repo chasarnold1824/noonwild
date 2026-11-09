@@ -5,7 +5,7 @@ category: Destination guide
 region: The Pantanal
 date: 2026-11-09
 image: https://images.unsplash.com/photo-1618741974846-97fdcfba6031?auto=format&fit=crop&w=2400&q=80
-imageAlt: A jaguar walking along a sandy riverbank in the Pantanal, Brazil's great wetland and the best place in the world to see the cat in the wild.
+imageAlt: Two jaguars on a sandy riverbank in the Pantanal, Brazil's great wetland and the best place in the world to see the cat in the wild.
 imagePosition: 50% 55%
 imageCredit: "Image courtesy of Unsplash."
 keyTakeaways:
