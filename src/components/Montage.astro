@@ -3,31 +3,31 @@
 // (pexels.com/license), streamed from Pexels' CDN and crossfaded in the browser.
 const V = 'https://videos.pexels.com/video-files/';
 const clips = [
-  { src: '38750356/16464950_1280_720_60fps.mp4', at: 2, label: 'Mountain gorillas, Rwanda' },
-  { src: '39730323/16941596_1280_720_30fps.mp4', at: 2, label: 'Torres del Paine, Chile' },
-  { src: '13402251/13402251-hd_1280_720_25fps.mp4', at: 2, label: 'On the trail to Everest Base Camp' },
-  { src: '29171868/12597608_1280_720_30fps.mp4', at: 1, label: 'Elephants at sunset' },
-  { src: '5699039/5699039-hd_1280_720_25fps.mp4', at: 2, label: 'A bath with a view' },
-  { src: '35646306/15106051_1280_720_30fps.mp4', at: 2, label: 'Mount Kilimanjaro, Tanzania' },
-  { src: '11236995/11236995-hd_1280_720_30fps.mp4', at: 2, label: 'On a game drive' },
-  { src: '36867544/15619023_1280_720_30fps.mp4', at: 1, label: 'An infinity pool above the forest' },
-  { src: '18680289/18680289-hd_1280_720_25fps.mp4', at: 3, label: 'A humpback breaching' },
-  { src: '28549037/12417116_1280_720_25fps.mp4', at: 2, label: 'A jungle lodge from above' },
-  { src: '39664522/16908283_1280_720_60fps.mp4', at: 2, label: 'Climbers on a summit ridge' },
-  { src: '6299773/6299773-hd_1280_720_30fps.mp4', at: 1, label: 'By expedition boat, among the ice' },
-  { src: '8849306/8849306-hd_1280_720_24fps.mp4', at: 2, label: 'Sundowners at camp' },
-  { src: '39157033/16662850_1280_720_25fps.mp4', at: 1, label: 'Cheetah on the savanna' },
-  { src: '16106215/16106215-hd_1280_720_60fps.mp4', at: 2, label: 'A plunge pool in the jungle' },
-  { src: '29632693/12750545_1280_720_25fps.mp4', at: 2, label: 'Ama Dablam, Nepal' },
-  { src: '14556448/14556448-hd_1280_720_30fps.mp4', at: 1, label: 'Zebras, Masai Mara' },
-  { src: '4022224/4022224-hd_1280_720_50fps.mp4', at: 2, label: 'Overwater villas, the Maldives' },
-  { src: '17075145/17075145-hd_1280_720_30fps.mp4', at: 2, label: 'Walking the glacier' },
-  { src: '11971111/11971111-hd_1280_720_30fps.mp4', at: 2, label: 'Champagne at sunset' },
-  { src: '17983734/17983734-hd_1280_720_30fps.mp4', at: 6, label: 'Sunrise over the Brandberg, Namibia' },
-  { src: '39514343/16833996_1280_720_30fps.mp4', at: 2, label: 'A lodge lit up at night' },
-  { src: '31280471/13358079_1280_720_25fps.mp4', at: 1, label: 'The northern lights' },
-  { src: '35728732/15142595_1280_720_60fps.mp4', at: 3, label: 'A summit push at sunset' },
-  { src: '39576516/16868146_1280_720_30fps.mp4', at: 1, label: 'A lakeside terrace at dusk' },
+  { src: '38750356/16464950_1280_720_60fps.mp4', at: 2 },
+  { src: '39730323/16941596_1280_720_30fps.mp4', at: 2 },
+  { src: '13402251/13402251-hd_1280_720_25fps.mp4', at: 2 },
+  { src: '29171868/12597608_1280_720_30fps.mp4', at: 1 },
+  { src: '5699039/5699039-hd_1280_720_25fps.mp4', at: 2 },
+  { src: '35646306/15106051_1280_720_30fps.mp4', at: 2 },
+  { src: '11236995/11236995-hd_1280_720_30fps.mp4', at: 2 },
+  { src: '36867544/15619023_1280_720_30fps.mp4', at: 1 },
+  { src: '18680289/18680289-hd_1280_720_25fps.mp4', at: 3 },
+  { src: '28549037/12417116_1280_720_25fps.mp4', at: 2 },
+  { src: '39664522/16908283_1280_720_60fps.mp4', at: 2 },
+  { src: '6299773/6299773-hd_1280_720_30fps.mp4', at: 1 },
+  { src: '8849306/8849306-hd_1280_720_24fps.mp4', at: 2 },
+  { src: '39157033/16662850_1280_720_25fps.mp4', at: 1 },
+  { src: '16106215/16106215-hd_1280_720_60fps.mp4', at: 2 },
+  { src: '29632693/12750545_1280_720_25fps.mp4', at: 2 },
+  { src: '14556448/14556448-hd_1280_720_30fps.mp4', at: 1 },
+  { src: '4022224/4022224-hd_1280_720_50fps.mp4', at: 2 },
+  { src: '17075145/17075145-hd_1280_720_30fps.mp4', at: 2 },
+  { src: '11971111/11971111-hd_1280_720_30fps.mp4', at: 2 },
+  { src: '17983734/17983734-hd_1280_720_30fps.mp4', at: 6 },
+  { src: '39514343/16833996_1280_720_30fps.mp4', at: 2 },
+  { src: '31280471/13358079_1280_720_25fps.mp4', at: 1 },
+  { src: '35728732/15142595_1280_720_60fps.mp4', at: 3 },
+  { src: '39576516/16868146_1280_720_30fps.mp4', at: 1 },
 ].map(c => ({ ...c, src: V + c.src }));
 ---
 <section class="montage" data-theme="dark" aria-label="Noon Wild travel montage">
@@ -44,7 +44,6 @@ const clips = [
     <a class="btn btn-solid reveal" style="--d:.35s" href="/plan/">Plan your expedition</a>
   </div>
   <div class="montage-foot container">
-    <span class="m-label" aria-live="off"></span>
     <span class="m-bars" aria-hidden="true">{clips.map(() => <i></i>)}</span>
     <span class="m-credit">Footage: Pexels</span>
   </div>
@@ -54,9 +53,8 @@ const clips = [
 <script>
   const root = document.querySelector<HTMLElement>('.montage');
   if (root) {
-    const clips: { src: string; at: number; label: string }[] = JSON.parse(document.getElementById('montage-clips')!.textContent!);
+    const clips: { src: string; at: number }[] = JSON.parse(document.getElementById('montage-clips')!.textContent!);
     const [a, b] = Array.from(root.querySelectorAll<HTMLVideoElement>('.m-vid'));
-    const label = root.querySelector<HTMLElement>('.m-label')!;
     const bars = Array.from(root.querySelectorAll<HTMLElement>('.m-bars i'));
     const CUT = 1800; // ms per shot
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -93,7 +91,6 @@ const clips = [
         back.classList.add('is-on'); front.classList.remove('is-on');
         
         [front, back] = [back, front];
-        label.textContent = clips[n].label;
         bars.forEach((el, x) => el.classList.toggle('on', x === n));
       }
       n = (n + 1) % clips.length;
