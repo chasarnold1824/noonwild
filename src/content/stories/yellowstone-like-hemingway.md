@@ -4,11 +4,10 @@ dek: Through the 1930s Hemingway kept returning to a ranch just past Yellowstone
 category: Destination guide
 region: Yellowstone
 date: 2026-11-09
-image: https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/BisonLamar.jpg
-imageAlt: A herd of bison grazing along the hillsides of the Lamar Valley, the heart of Hemingway's corner of Yellowstone.
-imagePosition: 50% 50%
-imageCredit: "Image courtesy of NPS / Jacob W. Frank."
-imageSourceUrl: https://www.usgs.gov/media/images/a-group-bison-lamar-valley
+image: https://images.unsplash.com/photo-1778704828743-31586fcea70d?auto=format&fit=crop&w=2400&q=80
+imageAlt: A lone bison grazing in a wide golden valley below forested slopes and cliffs in Yellowstone.
+imagePosition: 50% 60%
+imageCredit: "Image courtesy of Unsplash."
 keyTakeaways:
   - Hemingway's Yellowstone is the northeast corner, the Lamar Valley and Cooke City, not Old Faithful.
   - Go in winter for wolves and solitude; the Gardiner to Cooke City road is the only one open to cars.

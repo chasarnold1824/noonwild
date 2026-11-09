@@ -7,7 +7,7 @@ const stories = defineCollection({
   schema: z.object({
     title: z.string(),
     dek: z.string(),                       // one-sentence summary for cards and SEO
-    category: z.enum(['Destination guide', 'Explorer stories', 'Expert advice']),
+    category: z.enum(['Destination guide', 'Explorer stories', 'Expert advice', 'Hotels']),
     region: z.string(),                    // e.g. "Yellowstone", "Rwanda"
     date: z.coerce.date(),
     image: z.string(),                     // path under /public, e.g. /img/gorilla.jpg
