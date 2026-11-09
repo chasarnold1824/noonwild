@@ -4,10 +4,10 @@ dek: In 1921 a museum collector climbed into the Virunga volcanoes to collect go
 category: Destination guide
 region: Rwanda
 date: 2026-11-09
-image: /img/gorilla.jpg
+image: https://images.unsplash.com/photo-1722291731448-3afe029611a6?auto=format&fit=crop&w=2400&q=80
 imageAlt: A young mountain gorilla chewing a bamboo stem in dense green forest, the reward at the end of a Rwanda gorilla trek.
 imagePosition: 52% 40%
-imageCredit: "Photo: Unsplash."
+imageCredit: "Image courtesy of Unsplash."
 keyTakeaways:
   - Rwanda's gorillas live in Volcanoes National Park, on the same Virunga volcanoes where Carl Akeley's 1921 expedition began the push for Africa's first national park.
   - A permit costs US$1,500 for international visitors and buys up to one hour with a habituated gorilla family. Book it before anything else.
@@ -24,15 +24,6 @@ faq:
     a: Between November and May, Rwanda offers a permit discount to travelers who also spend at least two nights in Nyungwe or Akagera national parks.
 related:
   - yellowstone-like-hemingway
-atAGlance:
-  - label: Fly into
-    value: Kigali, then roughly two to three hours by road to Kinigi, on the edge of Volcanoes National Park.
-  - label: Permit
-    value: US$1,500 per person, booked through the Rwanda Development Board or your advisor.
-  - label: Minimum age
-    value: "15"
-  - label: Ideal length
-    value: Three nights at the park, enough for one or two treks and a volcano hike.
 sources:
   - title: "American Museum of Natural History: Finding the site of an iconic museum diorama"
     url: https://www.amnh.org/explore/news-blogs/news-posts/finding-the-site-of-an-iconic-museum-diorama
@@ -59,8 +50,6 @@ In 1921, Carl Akeley climbed into the Virunga volcanoes, in what was then the Be
 He did. But he also watched them. Akeley became one of the first people to describe mountain gorillas as intelligent, social animals, and on the way down the mountain he wrote that he feared they would be lost before anyone acted. He called the slopes of Mount Mikeno "the most beautiful place in all of Africa."
 
 So he acted. Akeley persuaded King Albert I of Belgium to set the gorillas' mountains aside as a sanctuary, and in 1925 Albert National Park was created, the first national park in Africa. He went back in 1926 to study the animals he had helped protect, died of illness at his camp at Kabara, and was buried a short walk from it, under the forest.
-
-> The most beautiful place in all of Africa.
 
 The collector became the gorillas' first advocate. A century later, his mountains are where you go to spend an hour a few meters from a silverback. Here is how to do it.
 
@@ -102,6 +91,6 @@ Add Nyungwe or Akagera to turn the trip into a full Rwanda circuit. Between Nove
 
 ## What Akeley would still recognize
 
-<figure><img src="/img/gorilla-hand.jpg" alt="The hand of a mountain gorilla resting among green bamboo leaves." loading="lazy"><figcaption>Bamboo forest, where most treks end. Photo: Unsplash.</figcaption></figure>
+<figure><img src="https://images.unsplash.com/photo-1783739415051-642a46f2d91e?auto=format&fit=crop&w=1600&q=80" alt="The hand of a mountain gorilla resting among green bamboo leaves." loading="lazy"><figcaption>Bamboo forest, where most treks end. Image courtesy of Unsplash.</figcaption></figure>
 
 The borders have changed, and the park now carries a different name on each side of them, but the mountains are the ones Akeley climbed. Mikeno still rises over the forest on the Congo side, and the bamboo still closes in a few steps off the trail. What he would not recognize is the ending. The animals he feared would vanish are still there, because people decided they should be, and because travelers keep paying to see them alive.
