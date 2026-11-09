@@ -18,6 +18,7 @@ Read before writing: `references/format.md` (structure and voice, modeled on noo
    - The oldest story in `src/content/stories/` with `draft: true` (a "Coming soon" card). Replace its stub.
    - Otherwise choose from demand signals, best first: Google Search Console queries for noonwild.com (if that connector is available: look for queries with impressions but no matching story), Apify trend results (if the Apify connector is available: Google Trends or Instagram/TikTok hashtag scrapers on luxury safari, expedition cruise, national park and explorer terms), then a web search for what luxury travel media are covering this month. Also skim noontravel.com/stories for what Noon is publishing, and do not duplicate Noon or an existing Noon Wild story.
    - Every topic must pair **a real place travelers can book today** with **a real person who went there first and did something surprising** (explorer, naturalist, writer, scientist). Prefer lesser-known, entertaining figures over famous ones. Avoid figures whose legacy is mainly violence or exploitation.
+   - Choose the category (Destination guide, Hotels, Explorer stories, Expert advice) and keep a mix across the week: about half the stories should go deep on the properties (what they offer, what makes each unique), and half should be story-led with light hotel mentions. See the depth table in `references/format.md`.
 
 3. **Refresh the voice.** Fetch two recent stories from https://noontravel.com/stories and skim them so the draft matches Noon's current tone.
 
@@ -37,7 +38,7 @@ Read before writing: `references/format.md` (structure and voice, modeled on noo
    - No em dashes anywhere in the story. Use commas, colons or full stops.
    - Set `draft: false`, set `date` to today, set `featured: true` only if asked (and set the previous featured story to false).
 
-8. **Submit for approval.** Create branch `story/<slug>`, commit, push, and open a pull request titled `Story: <title>`. In the PR body include: a two-line summary, the fact table, the image list (file, source page, credit), and anything uncertain. Do not merge. Chas approves by merging, which publishes the story.
+8. **Submit for Chas's review. Never publish without it.** Create branch `story/<slug>`, commit, push, and open a pull request titled `Story: <title>`. In the PR body include: a two-line summary, the fact table, the image list (file, source page, credit), and anything uncertain. Do not merge. Chas approves by merging, which publishes the story.
    - Open the PR with the GitHub API (this works through the session's git proxy even when `gh` is not logged in):
      ```bash
      curl -sS -X POST -H "Content-Type: application/json" -H "Accept: application/vnd.github+json" \
@@ -47,4 +48,4 @@ Read before writing: `references/format.md` (structure and voice, modeled on noo
    - If GitHub access fails, save the files and report exactly what to upload.
    - Only push straight to `main` if Chas has explicitly switched the run to auto-publish.
 
-9. **Report** in two or three lines: the title, the PR link, and any facts or images that need his eye.
+9. **Ask Chas to review.** End the run with a message to him that contains: the title, the dek, the Netlify preview link (`https://deploy-preview-<PR number>--jocular-puffpuff-d74380.netlify.app/stories/<slug>/`), the PR link, and a short list of anything he should check (unverified facts, images you could not see, judgment calls). Ask him to reply "approve" or with changes. He approves by merging the PR; if he asks for changes, edit the same branch.
