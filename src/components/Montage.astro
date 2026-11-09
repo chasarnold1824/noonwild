@@ -6,17 +6,18 @@ const clips = [
   { src: '39730323/16941596_1280_720_30fps.mp4', at: 2, label: 'Torres del Paine, Chile' },
   { src: '37829461/16046101_1280_720_30fps.mp4', at: 1, label: 'Volcanic eruption, Iceland' },
   { src: '29171868/12597608_1280_720_30fps.mp4', at: 1, label: 'Elephants at sunset' },
-  { src: '8849239/8849239-hd_1280_720_24fps.mp4', at: 1, label: 'A tented suite' },
-  { src: '35969886/15251196_1280_720_30fps.mp4', at: 2, label: 'The Amazon from the air' },
-  { src: '6299771/6299771-hd_1280_720_30fps.mp4', at: 1, label: 'Polar ice' },
-  { src: '39157033/16662850_1280_720_25fps.mp4', at: 1, label: 'Cheetah on the savanna' },
   { src: '36867544/15619023_1280_720_30fps.mp4', at: 1, label: 'An infinity pool above the forest' },
-  { src: '31280471/13358079_1280_720_25fps.mp4', at: 1, label: 'The northern lights' },
-  { src: '14556448/14556448-hd_1280_720_30fps.mp4', at: 1, label: 'Zebras, Masai Mara' },
-  { src: '32987075/14058611_1280_720_60fps.mp4', at: 1, label: 'Glacier ice' },
-  { src: '39576516/16868146_1280_720_30fps.mp4', at: 1, label: 'A lakeside terrace at dusk' },
-  { src: '11563618/11563618-hd_1280_720_30fps.mp4', at: 2, label: 'Desert dunes' },
+  { src: '6299773/6299773-hd_1280_720_30fps.mp4', at: 1, label: 'By expedition boat, among the ice' },
+  { src: '35969886/15251196_1280_720_30fps.mp4', at: 2, label: 'The Amazon from the air' },
+  { src: '39157033/16662850_1280_720_25fps.mp4', at: 1, label: 'Cheetah on the savanna' },
   { src: '17983734/17983734-hd_1280_720_30fps.mp4', at: 6, label: 'Sunrise over the Brandberg, Namibia' },
+  { src: '31280471/13358079_1280_720_25fps.mp4', at: 1, label: 'The northern lights' },
+  { src: '4022224/4022224-hd_1280_720_50fps.mp4', at: 2, label: 'Overwater villas, the Maldives' },
+  { src: '14556448/14556448-hd_1280_720_30fps.mp4', at: 1, label: 'Zebras, Masai Mara' },
+  { src: '32987075/14058611_1280_720_60fps.mp4', at: 1, label: 'Glacier ice from above' },
+  { src: '4996250/4996250-hd_1280_720_30fps.mp4', at: 2, label: 'A campfire in the forest' },
+  { src: '11563618/11563618-hd_1280_720_30fps.mp4', at: 2, label: 'Desert dunes' },
+  { src: '39576516/16868146_1280_720_30fps.mp4', at: 1, label: 'A lakeside terrace at dusk' },
 ].map(c => ({ ...c, src: V + c.src }));
 ---
 <section class="montage" data-theme="dark" aria-label="Noon Wild travel montage">
@@ -24,6 +25,7 @@ const clips = [
     <video class="m-vid is-on" muted playsinline preload="none" poster="/img/lion-dusk.jpg"></video>
     <video class="m-vid" muted playsinline preload="none"></video>
     <div class="m-shade"></div>
+    <div class="m-bar m-bar-top"></div><div class="m-bar m-bar-bot"></div>
   </div>
   <div class="montage-copy container">
     <p class="m-kicker reveal">Noon Wild</p>
@@ -46,7 +48,7 @@ const clips = [
     const [a, b] = Array.from(root.querySelectorAll<HTMLVideoElement>('.m-vid'));
     const label = root.querySelector<HTMLElement>('.m-label')!;
     const bars = Array.from(root.querySelectorAll<HTMLElement>('.m-bars i'));
-    const CUT = 2700; // ms per shot
+    const CUT = 2000; // ms per shot: 15 shots, about a 30-second loop
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     let n = 0, front = a, back = b, timer: number | undefined, running = false;
 
