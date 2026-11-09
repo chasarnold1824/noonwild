@@ -1,5 +1,6 @@
 ---
 import { fmtDate, readingTime } from '../lib';
+import { cdn } from '../img.mjs';
 interface Props { story: any; }
 const { story } = Astro.props;
 const d = story.data;
@@ -7,7 +8,7 @@ const Tag = d.draft ? 'div' : 'a';
 ---
 <Tag class:list={['card', 'reveal', { soon: d.draft }]} href={d.draft ? undefined : `/stories/${story.id}/`} data-cat={d.category}>
   <div class="thumb">
-    <img src={d.image} alt={d.imageAlt} loading="lazy" style={`object-position: ${d.imagePosition}`}>
+    <img src={cdn(d.image, 900)} alt={d.imageAlt} loading="lazy" style={`object-position: ${d.imagePosition}`}>
     <span class="pill">{d.category}</span>
   </div>
   <h3 class="t-title">{d.title}</h3>

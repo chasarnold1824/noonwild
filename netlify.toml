@@ -3,3 +3,7 @@
   publish = "dist"
 [build.environment]
   NODE_VERSION = "22"
+
+# Netlify Image CDN: resize and cache every remote story image (hotel, NPS, Unsplash)
+[images]
+  remote_images = ["https://.*"]
