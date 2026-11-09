@@ -35,20 +35,14 @@ sources:                           # every factual claim must trace to one of th
 1. **Every story is about a real place you can travel to today**, told through a real person who went there first. Titles read like travel guides: "How to plan a trip to X like Y", "How to visit X", "The [surprising true story], and how to see it now."
 2. **Two sources for every historical fact**, linked in `sources`. If only one source supports a claim, soften it or cut it. Never invent quotes, dates or numbers.
 3. **Hotels and lodges:** name only properties that are real and currently operating, and only facts their own site or a major guide (MICHELIN, Forbes Travel Guide) confirms. Do not imply a partnership unless one is signed.
-4. **No em dashes.** Use commas, colons or full stops.
+4. **Format and voice:** follow `.claude/skills/noonwild-story/references/format.md` (Noon Travel house style). **No em dashes.** Use commas, colons or full stops.
 5. **Length:** 800 to 1,500 words. Sections: the story, why this place, when to go, where to stay, a sample itinerary, a closing reflection.
 6. **Review before publishing.** Agents write new stories with `draft: true` and open a pull request. A person (Chas) approves and merges.
 
 ## Image rules
 
-Allowed, in order of preference:
-1. Photos by Chas Arnold or the Noon team. Credit: `Photograph by Chas Arnold`.
-2. Hotel and lodge media-kit photos with written permission on file. Credit as the property requests.
-3. Partner tour operators' photo libraries, with permission.
-4. Public-domain archives (Library of Congress, Smithsonian Open Access, National Archives, public-domain files on Wikimedia Commons). Credit the archive.
-5. Unsplash or Pexels free-license photos (not Unsplash+). Credit: `Photograph via Unsplash`.
-6. AI illustrations, credited `Illustration`. **Never** for hotel rooms, lodges, ships or anything a client could book.
+See `.claude/skills/noonwild-story/references/images.md`. In short: hotel websites, Forbes Travel Guide, Unsplash, public archives and Chas's own photos, each credited under the image in Noon's style ("Image courtesy of [Property]."), logged in `image-log.csv`. Never AI images of anything a client could book.
 
-Never pull images from Google Images, FTG, Instagram or a hotel website without written permission. Credit lines do not replace permission.
+## The publishing skill
 
-Images: landscape JPGs, about 2000px wide, under 500 KB, saved to `public/img/` with a descriptive name.
+The agent workflow lives in `.claude/skills/noonwild-story/SKILL.md`. Any Claude session that opens this repo can run it ("write today's story").

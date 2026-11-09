@@ -10,8 +10,11 @@ export async function getStaticPaths() {
 }
 const { story } = Astro.props;
 const d = story.data;
-const { Content } = await render(story);
-const more = (await allStories()).filter(s => s.id !== story.id).slice(0, 3);
+const { Content, headings } = await render(story);
+const toc = headings.filter(h => h.depth === 2);
+const all = await allStories();
+const further = d.related.map(id => all.find(s => s.id === id && !s.data.draft)).filter(Boolean);
+const more = all.filter(s => s.id !== story.id).slice(0, 3);
 ---
 <Base title={d.title} description={d.dek} image={d.image}>
   <article>
@@ -21,14 +24,33 @@ const more = (await allStories()).filter(s => s.id !== story.id).slice(0, 3);
         <span class="caps">{d.category} · {d.region}</span>
         <h1>{d.title}</h1>
         <p class="dek">{d.dek}</p>
-        <div class="byline"><span>The Noon Wild Journal</span><span>{fmtDate(d.date)}</span><span>{readingTime(story.body)} min read</span></div>
+        <div class="byline"><span>{d.author}, {d.authorRole}</span><span>{fmtDate(d.date)}</span><span>{readingTime(story.body)} min read</span></div>
       </div>
-      <span class="credit">{d.imageCredit}</span>
+      <span class="credit">{d.imageSourceUrl ? <a href={d.imageSourceUrl} rel="noopener" target="_blank">{d.imageCredit}</a> : d.imageCredit}</span>
     </header>
 
     <div class="wrap a-layout">
       <div>
+        {d.keyTakeaways.length > 0 && (
+          <section class="takeaways" aria-labelledby="kt-title">
+            <h2 id="kt-title">Key Takeaways</h2>
+            <ul>{d.keyTakeaways.map(t => <li>{t}</li>)}</ul>
+          </section>
+        )}
         <div class="prose"><Content /></div>
+        {d.faq.length > 0 && (
+          <section class="prose faq" aria-labelledby="faq-title">
+            <h2 id="faq-title">What You Actually Want to Know</h2>
+            {d.faq.map(f => <p><strong>{f.q}</strong><br>{f.a}</p>)}
+          </section>
+        )}
+        <p class="prose closer">Tell a Noon Wild advisor which story pulled you in, and we will build the trip around it. <a href={`/plan/?story=${story.id}`}>Start the conversation.</a></p>
+        {further.length > 0 && (
+          <section class="further" aria-labelledby="fr-title">
+            <h2 id="fr-title" class="caps tag">Further reading</h2>
+            <ul>{further.map((s: any) => <li><a href={`/stories/${s.id}/`}>{s.data.title}</a></li>)}</ul>
+          </section>
+        )}
         {d.sources.length > 0 && (
           <section class="sources" aria-labelledby="src-title">
             <h2 id="src-title">Sources</h2>
@@ -37,6 +59,12 @@ const more = (await allStories()).filter(s => s.id !== story.id).slice(0, 3);
         )}
       </div>
       <aside class="aside">
+        {toc.length > 0 && (
+          <nav class="toc" aria-labelledby="toc-title">
+            <span class="caps tag" id="toc-title">In this article</span>
+            <ol>{toc.map(h => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+          </nav>
+        )}
         {d.atAGlance.length > 0 && (
           <div class="glance">
             <span class="caps tag">At a glance</span>

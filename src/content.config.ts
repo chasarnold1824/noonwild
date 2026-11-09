@@ -13,9 +13,16 @@ const stories = defineCollection({
     image: z.string(),                     // path under /public, e.g. /img/gorilla.jpg
     imageAlt: z.string(),
     imagePosition: z.string().default('50% 50%'),
-    imageCredit: z.string(),               // e.g. "Photograph by Chas Arnold", "Photograph via Unsplash"
+    imageCredit: z.string(),               // e.g. "Image courtesy of Sage Lodge.", "Photo: Chas Arnold."
+
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),     // drafts show as "Coming soon" cards and get no page
+    author: z.string().default('Chas Arnold'),
+    authorRole: z.string().default('Noon Wild Advisor'),
+    keyTakeaways: z.array(z.string()).default([]),
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
+    related: z.array(z.string()).default([]),   // slugs of other stories for "Further reading"
+    imageSourceUrl: z.string().url().optional(), // page the hero image came from
     atAGlance: z.array(z.object({ label: z.string(), value: z.string() })).default([]),
     sources: z.array(z.object({ title: z.string(), url: z.string().url() })).default([]),
   }),

@@ -7,7 +7,21 @@ date: 2026-11-09
 image: /img/yellowstone-bison.jpg
 imageAlt: A lone bison grazing in a wide golden valley below forested slopes and cliffs.
 imagePosition: 50% 60%
-imageCredit: Photograph via Unsplash
+imageCredit: "Photo: Unsplash."
+keyTakeaways:
+  - Hemingway's Yellowstone is the northeast corner, the Lamar Valley and Cooke City, not Old Faithful.
+  - Go in winter for wolves and solitude; the Gardiner to Cooke City road is the only one open to cars.
+  - Go between late May and mid-October to add the Beartooth Highway and fish the Clarks Fork.
+  - Base in the Paradise Valley at Sage Lodge, then spend two or three nights near Cooke City for dawn starts.
+faq:
+  - q: Can you visit the ranch where Hemingway stayed?
+    a: The L Bar T was a private guest ranch on the Clarks Fork in Wyoming. Treat the surrounding valley, river and Cooke City as the experience rather than the property itself.
+  - q: Is winter in Yellowstone worth it?
+    a: For wildlife, yes. With most park roads closed to cars, the Lamar Valley is quieter and animals are easier to spot against the snow. The trade-off is limited access to the geysers unless you add a snowcoach day after December 15.
+  - q: How many days do you need?
+    a: Seven nights lets you split the trip between the Paradise Valley and the northeast corner without rushing. Five is the minimum.
+  - q: Where should you fly into?
+    a: Bozeman, Montana. From there it is a straight drive south through the Paradise Valley to the North Entrance at Gardiner.
 featured: true
 atAGlance:
   - label: Fly into
@@ -41,29 +55,29 @@ That first summer ended badly. In November 1930 he rolled his car on one of the 
 
 Ninety years on, his corner of Yellowstone is still the quiet one. Here is how to travel it.
 
-## Why the northeast corner
+## Why Hemingway's corner of the park?
 
 Most visitors come for Old Faithful and the geysers in the park's southwest. Hemingway's country is the opposite end: the Lamar Valley, a wide river valley often called America's Serengeti for the bison, elk, wolves and bears that move through it, and the small mountain town of Cooke City beyond. It is the part of the park built for early mornings with a spotting scope, and for travelers who would rather watch a wolf pack than a geyser schedule.
 
 
-<figure><img src="/img/grizzly-snow.jpg" alt="A young grizzly bear standing in fresh snow among bare branches." loading="lazy"><figcaption>A grizzly in early snow. Photograph via Unsplash.</figcaption></figure>
+<figure><img src="/img/grizzly-snow.jpg" alt="A young grizzly bear standing in fresh snow among bare branches." loading="lazy"><figcaption>A grizzly in early snow near the park. Photo: Unsplash.</figcaption></figure>
 
-## When to go
+## When should you go?
 
 **Winter** is the season for wildlife. Most of Yellowstone's roads close to cars on November 1, but the road from the North Entrance at Gardiner to the Northeast Entrance at Cooke City stays open all year, weather permitting. It runs past Mammoth Hot Springs and Tower Junction and straight through the Lamar Valley. With the rest of the park closed to traffic, animals stand out against the snow and the valley belongs to a handful of people. Snowcoach and snowmobile travel into the park's interior begins on December 15 for travelers who want to add the geysers.
 
 **Summer**, from late May to mid-October, opens the full route. The Beartooth Highway climbs from Red Lodge, Montana, over the 10,947-foot Beartooth Pass and down into Cooke City. The Forest Service suggests allowing at least two to three hours for the drive, and snow often lingers at the top into July. This is also the season for the Clarks Fork itself, and for fishing the water Hemingway fished.
 
 
-<figure><img src="/img/mammoth-snow.jpg" alt="Snow-covered travertine terraces in winter fog." loading="lazy"><figcaption>Travertine terraces in winter. Photograph by Chas Arnold.</figcaption></figure>
+<figure><img src="/img/mammoth-snow.jpg" alt="Snow-covered travertine terraces in winter fog." loading="lazy"><figcaption>The travertine terraces at Mammoth Hot Springs in winter. Photo: Chas Arnold.</figcaption></figure>
 
-## Where to stay
+## Where should you stay?
 
 Start in the Paradise Valley, the stretch of the Yellowstone River between Livingston and Gardiner. **Sage Lodge**, in Pray, Montana, is the strongest base on this side of the park: 38 rooms on the river, a spa, two restaurants built around local ranches, and three MICHELIN Keys, the guide's highest rating. It sits under an hour from the North Entrance, close enough for day trips to Mammoth and the Lamar Valley.
 
 For the dawn starts that wildlife watching demands, your advisor can pair Sage Lodge with a simpler, private base near Cooke City or Silver Gate for two or three nights, so you are already at the east end of the valley when the light comes up.
 
-## A week in Hemingway's country
+## A week in Hemingway's country: the itinerary
 
 **Days 1 and 2: Paradise Valley.** Fly into Bozeman and drive south to Sage Lodge. Spend a day on the Yellowstone River with a fishing guide, or simply let the valley slow you down.
 
