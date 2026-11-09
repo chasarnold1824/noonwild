@@ -13,76 +13,107 @@ const d = story.data;
 const { Content, headings } = await render(story);
 const toc = headings.filter(h => h.depth === 2);
 const all = await allStories();
-const further = d.related.map(id => all.find(s => s.id === id && !s.data.draft)).filter(Boolean);
-const more = all.filter(s => s.id !== story.id).slice(0, 3);
+const further = d.related.map(id => all.find(s => s.id === id && !s.data.draft)).filter(Boolean) as any[];
+const more = all.filter(s => s.id !== story.id).slice(0, 4);
+const initials = d.author.split(' ').map(w => w[0]).join('');
+const url = new URL(`/stories/${story.id}/`, Astro.site).toString();
 ---
 <Base title={d.title} description={d.dek} image={d.image}>
   <article>
-    <header class="a-hero">
-      <img src={d.image} alt={d.imageAlt} style={`object-position: ${d.imagePosition}`}>
-      <div class="wrap">
-        <span class="caps">{d.category} · {d.region}</span>
-        <h1>{d.title}</h1>
-        <p class="dek">{d.dek}</p>
-        <div class="byline"><span>{d.author}, {d.authorRole}</span><span>{fmtDate(d.date)}</span><span>{readingTime(story.body)} min read</span></div>
+    <header class="story-hero" data-theme="dark">
+      <div class="px"><img src={d.image} alt={d.imageAlt} style={`object-position: ${d.imagePosition}`}></div>
+      <div class="scrim"></div>
+      <div class="container in">
+        <p class="crumb enter" style="--d:.08s"><a href="/">Home</a> / <a href="/stories/">Stories</a> / {d.category}</p>
+        <h1 class="t-display words is-visible" style="--d:.16s">{d.title}</h1>
+        <div class="hero-meta enter" style="--d:.6s">
+          <span class="cat">{d.category}</span>
+          <div class="meta light"><time datetime={d.date.toISOString()}>{fmtDate(d.date)}</time><span aria-hidden="true">•</span><span>{readingTime(story.body)} mins read</span></div>
+        </div>
+        <p class="hero-credit enter" style="--d:.7s">{d.imageSourceUrl ? <a href={d.imageSourceUrl} rel="noopener" target="_blank">{d.imageCredit}</a> : d.imageCredit}</p>
       </div>
-      <span class="credit">{d.imageSourceUrl ? <a href={d.imageSourceUrl} rel="noopener" target="_blank">{d.imageCredit}</a> : d.imageCredit}</span>
     </header>
 
-    <div class="wrap a-layout">
-      <div>
-        {d.keyTakeaways.length > 0 && (
-          <section class="takeaways" aria-labelledby="kt-title">
-            <h2 id="kt-title">Key Takeaways</h2>
-            <ul>{d.keyTakeaways.map(t => <li>{t}</li>)}</ul>
-          </section>
-        )}
-        <div class="prose"><Content /></div>
-        {d.faq.length > 0 && (
-          <section class="prose faq" aria-labelledby="faq-title">
-            <h2 id="faq-title">What You Actually Want to Know</h2>
-            {d.faq.map(f => <p><strong>{f.q}</strong><br>{f.a}</p>)}
-          </section>
-        )}
-        <p class="prose closer">Tell a Noon Wild advisor which story pulled you in, and we will build the trip around it. <a href={`/plan/?story=${story.id}`}>Start the conversation.</a></p>
-        {further.length > 0 && (
-          <section class="further" aria-labelledby="fr-title">
-            <h2 id="fr-title" class="caps tag">Further reading</h2>
-            <ul>{further.map((s: any) => <li><a href={`/stories/${s.id}/`}>{s.data.title}</a></li>)}</ul>
-          </section>
-        )}
-        {d.sources.length > 0 && (
-          <section class="sources" aria-labelledby="src-title">
-            <h2 id="src-title">Sources</h2>
-            <ol>{d.sources.map(s => <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a></li>)}</ol>
-          </section>
-        )}
-      </div>
-      <aside class="aside">
-        {toc.length > 0 && (
-          <nav class="toc" aria-labelledby="toc-title">
-            <span class="caps tag" id="toc-title">In this article</span>
-            <ol>{toc.map(h => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
-          </nav>
-        )}
-        {d.atAGlance.length > 0 && (
-          <div class="glance">
-            <span class="caps tag">At a glance</span>
-            <dl>{d.atAGlance.map(i => <div><dt>{i.label}</dt><dd>{i.value}</dd></div>)}</dl>
+    <div class="light-band" data-theme="light">
+      <div class="container story-layout">
+        <nav class="story-aside" aria-label="In this article">
+          {toc.length > 0 && <><h2>In this article</h2>{toc.map(h => <a href={`#${h.slug}`} data-toc={h.slug}>{h.text}</a>)}</>}
+        </nav>
+
+        <div class="story-main">
+          <div class="byline">
+            <div class="avatar" aria-hidden="true">{initials}</div>
+            <div><p class="name">{d.author}</p><div class="meta"><span>{d.authorRole}</span><span>•</span><time datetime={d.date.toISOString()}>{fmtDate(d.date)}</time><span>•</span><span>{readingTime(story.body)} mins read</span></div></div>
           </div>
-        )}
-        <a class="btn btn--brass" href={`/plan/?story=${story.id}`}>Plan this trip</a>
-      </aside>
+
+          {d.keyTakeaways.length > 0 && (
+            <section class="takeaways-wrap">
+              <h2>Key Takeaways</h2>
+              <ul class="takeaways">{d.keyTakeaways.map(t => <li>{t}</li>)}</ul>
+            </section>
+          )}
+
+          <div class="article">
+            <Content />
+            {d.faq.length > 0 && (
+              <section class="faq">
+                <h2 id="what-you-actually-want-to-know">What You Actually Want to Know</h2>
+                {d.faq.map(f => <p><strong>{f.q}</strong>{f.a}</p>)}
+              </section>
+            )}
+            <p class="closer">Tell a Noon Wild advisor which story pulled you in, and we will build the trip around it. <a href={`/plan/?story=${story.id}`}>Start the conversation.</a></p>
+          </div>
+
+          {further.length > 0 && (
+            <section class="further">
+              <p class="lbl">Further reading</p>
+              <ul>{further.map(s => <li><a href={`/stories/${s.id}/`}>{s.data.title}</a></li>)}</ul>
+            </section>
+          )}
+
+          {d.sources.length > 0 && (
+            <details class="sources">
+              <summary>Sources ({d.sources.length})</summary>
+              <ol>{d.sources.map(s => <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a></li>)}</ol>
+            </details>
+          )}
+        </div>
+
+        <aside class="story-aside" aria-label="Share">
+          <h2>Share this article</h2>
+          <div class="share">
+            <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`} target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg></a>
+            <a href={`mailto:?subject=${encodeURIComponent(d.title)}&body=${encodeURIComponent(url)}`} aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a>
+            <button type="button" data-copy={url} aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button>
+          </div>
+        </aside>
+      </div>
     </div>
   </article>
 
-  <section class="sec journal-band" aria-labelledby="more-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <div><span class="caps tag">The journal</span><h2 id="more-title">More stories</h2></div>
-        <a class="link" href="/stories/">See all stories <span class="arr" aria-hidden="true">→</span></a>
-      </div>
-      <div class="cards">{more.map(s => <StoryCard story={s} />)}</div>
+  <section class="light-band sec" data-theme="light" style="padding-top:0">
+    <h2 class="t-display sec-title words">More stories.</h2>
+    <div class="cards">{more.map(s => <StoryCard story={s} />)}</div>
+    <div class="center"><a class="btn btn-soft" href="/stories/">See all stories</a></div>
+  </section>
+
+  <section class="final-cta" data-theme="dark">
+    <img src="/img/elk-snow.jpg" alt="" loading="lazy" style="object-position:55% 60%">
+    <div class="in">
+      <h2 class="t-display words">Tell us about your next expedition.</h2>
+      <a class="btn btn-solid reveal" href={`/plan/?story=${story.id}`}>Get started</a>
     </div>
   </section>
+
+  <script>
+    document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(b.dataset.copy!); b.setAttribute('aria-label', 'Link copied'); } catch {}
+    }));
+    // Highlight the current section in "In this article"
+    const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-toc]'));
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) links.forEach(l => l.classList.toggle('on', l.dataset.toc === e.target.id));
+    }), { rootMargin: '-20% 0px -70% 0px' });
+    links.forEach(l => { const t = document.getElementById(l.dataset.toc!); if (t) io.observe(t); });
+  </script>
 </Base>

@@ -1,102 +1,149 @@
 ---
 import Base from '../layouts/Base.astro';
-import StoryCard from '../components/StoryCard.astro';
-import { allStories } from '../lib';
+import RowCard from '../components/RowCard.astro';
+import { allStories, unsplash, fmtDate, readingTime } from '../lib';
+
 const stories = await allStories();
-const featured = stories.find(s => s.data.featured && !s.data.draft);
-const grid = stories.filter(s => s !== featured).slice(0, 6);
+const featured = stories.find(s => s.data.featured && !s.data.draft) ?? stories[0];
+const list = stories.filter(s => s !== featured).slice(0, 4);
+
+const destinations = [
+  { name: 'Rwanda', img: unsplash('photo-1722291731448-3afe029611a6', 1200), href: '/stories/rwanda-gorilla-trek/' },
+  { name: 'Yellowstone', img: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/BisonLamar.jpg', href: '/stories/yellowstone-like-hemingway/' },
+  { name: 'Galápagos', img: unsplash('photo-1581875598938-cac706391c98', 1200), href: '/stories/' },
+  { name: 'East Africa', img: '/img/lions-greeting.jpg', href: '/stories/' },
+  { name: 'The Arctic', img: '/img/polar-bear.jpg', href: '/stories/' },
+  { name: 'Central America', img: '/img/copan-stela.jpg', href: '/stories/' },
+  { name: 'Uganda', img: '/img/elephant.jpg', href: '/stories/' },
+];
+
+const why = [
+  { n: '01', t: 'Every trip begins with a true story', p: 'An explorer, a naturalist, a writer who went first. We start there, then build the journey that lets you stand inside it.', img: '/img/elephant.jpg', pos: '58% 40%' },
+  { n: '02', t: 'Five-star camps, lodges and ships', p: 'The finest properties at the edge of the wild, with preferred benefits through Noon Travel: upgrades, credits and quiet extras.', img: '/img/tent-interior.jpg', pos: '30% 50%' },
+  { n: '03', t: 'Travel that leaves the place better', p: 'Every journey comes with an impact report, so you see exactly where your trip’s conservation contribution went.', img: '/img/bighorn.jpg', pos: '50% 40%' },
+];
+
+const steps = [
+  { n: '01', t: 'Choose your story.', p: 'A place, an explorer, an animal you have always wanted to see.', art: 'compass' },
+  { n: '02', t: 'Meet your advisor.', p: 'A real conversation with someone who knows the ground.', art: 'map' },
+  { n: '03', t: 'We design the expedition.', p: 'Permits, camps, guides and flights, arranged around you.', art: 'tent' },
+  { n: '04', t: 'Travel, then see your impact.', p: 'An advisor on call throughout, and a report when you return.', art: 'peak' },
+];
 ---
 <Base>
-
-  <!-- HERO -->
-  <section class="hero" aria-labelledby="hero-title">
-    <img src="/img/lion-dusk.jpg" alt="A young lion lies in tall grass at dusk, looking toward the camera while the pride sleeps around it.">
-    <div class="wrap hero-body">
-      <span class="caps eyebrow">Luxury travel, guided by the great explorers</span>
-      <h1 id="hero-title">Go where the <em>explorers</em> went.</h1>
-      <div class="hero-foot">
-        <p class="dek">Private, five-star journeys to the world's wildest places, planned by advisors who know the stories behind them.</p>
-        <div class="actions">
-          <a class="btn btn--brass" href="/plan/">Plan your trip</a>
-          <a class="btn btn--ghost" href="/stories/">Read the stories</a>
-        </div>
-      </div>
+  <!-- HERO: Noon's blurred-backdrop carousel -->
+  <section class="hero" data-theme="dark" id="destinations">
+    <div class="hero-bg" aria-hidden="true">
+      {destinations.map((d, i) => <img src={d.img} alt="" class:list={{ on: i === 0 }} loading={i < 2 ? 'eager' : 'lazy'}>)}
     </div>
-    <span class="credit">Photograph by Chas Arnold</span>
-  </section>
-
-  <!-- INTRO -->
-  <section class="wrap intro" aria-label="About Noon Wild">
-    <img src="/img/mark.png" alt="">
-    <p>Every wild place has a story. We plan the trip that lets you <em>stand inside it</em>, from Rwanda's volcanoes to Yellowstone in winter.</p>
-  </section>
-
-  
-  {featured && (
-  <section class="wrap" aria-label="Featured guide" style="padding-bottom: clamp(64px, 8vw, 112px)">
-    <a class="feature" href={`/stories/${featured.id}/`}>
-      <figure class="ph" style="--ar: 3/2"><img src={featured.data.image} alt={featured.data.imageAlt} style={`object-position: ${featured.data.imagePosition}`}></figure>
-      <div class="copy">
-        <span class="caps tag">{featured.data.category} · {featured.data.region}</span>
-        <h2>{featured.data.title}</h2>
-        <p class="dek">{featured.data.dek}</p>
-        <span class="link">Read the guide <span class="arr" aria-hidden="true">→</span></span>
+    <div class="hero-body">
+      <p class="carousel-label enter" style="--d:.2s">Featured destinations</p>
+      <div class="carousel enter" style="--d:.28s" aria-label="Featured destinations">
+        {destinations.map((d, i) => (
+          <a class="c-card" href={d.href} data-i={i}><img src={d.img} alt={d.name}><span>{d.name}</span></a>
+        ))}
       </div>
-    </a>
-  </section>
-  )}
-
-  <section class="sec journal-band" id="journal" aria-labelledby="journal-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <div><span class="caps tag">The journal</span><h2 id="journal-title">Stories from the wild</h2></div>
-        <a class="link" href="/stories/">See all stories <span class="arr" aria-hidden="true">→</span></a>
-      </div>
-      <div class="cards">
-        {grid.map(s => <StoryCard story={s} />)}
+      <h1 class="t-h1 enter" style="--d:.45s">Go where the explorers went.</h1>
+      <div class="hero-actions">
+        <a class="btn btn-text enter" style="--d:.88s; color:#fff" href="/stories/">Read the stories</a>
+        <a class="btn btn-solid enter" style="--d:1s" href="/plan/">Get started</a>
       </div>
     </div>
   </section>
 
-  <!-- DESTINATIONS -->
-  <section class="sec" id="destinations" aria-labelledby="dest-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <div><span class="caps tag">Destinations</span><h2 id="dest-title">Where we travel</h2></div>
-      </div>
-      <div class="dest">
-        <a class="tile" href="/stories/"><figure class="ph"><img src="/img/lions-greeting.jpg" alt="A lioness and a young lion touching noses in the grass." loading="lazy" style="object-position: 62% 50%"></figure><div class="label"><b>East Africa</b><span>Rwanda, Uganda, Kenya</span></div></a>
-        <a class="tile" href="/stories/"><figure class="ph"><img src="/img/elk-snow.jpg" alt="Elk standing in snow and dry grass." loading="lazy" style="object-position: 55% 60%"></figure><div class="label"><b>Yellowstone</b><span>Wyoming and Montana</span></div></a>
-        <a class="tile" href="/stories/"><figure class="ph"><img src="/img/tree-frog.jpg" alt="A red-eyed tree frog on a leaf at night." loading="lazy" style="object-position: 50% 40%"></figure><div class="label"><b>Central America</b><span>Guatemala, Honduras</span></div></a>
-        <a class="tile" href="/stories/"><figure class="ph"><img src="/img/polar-bear.jpg" alt="A polar bear walking across a floe of pack ice." loading="lazy" style="object-position: 68% 50%"></figure><div class="label"><b>The Arctic</b><span>Svalbard</span></div></a>
-        <a class="tile" href="/stories/"><figure class="ph"><img src="/img/sea-lion.jpg" alt="A sea lion resting on black lava rock with surf behind." loading="lazy" style="object-position: 40% 50%"></figure><div class="label"><b>Galápagos</b><span>Ecuador</span></div></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="sec how-band" id="how" aria-labelledby="how-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <div><span class="caps">How it works</span><h2 id="how-title">Your expedition, arranged</h2></div>
-      </div>
-      <div class="steps">
-        <div><span class="n">1</span><h3>Tell us where you're drawn</h3><p>A place, a story, an animal you've always wanted to see. Share your dates and who's coming.</p></div>
-        <div><span class="n">2</span><h3>We design the journey</h3><p>Your advisor builds a private itinerary around the best camps, lodges and guides, with every flight and permit arranged.</p></div>
-        <div><span class="n">3</span><h3>Travel, then see your impact</h3><p>Go with an advisor on call. When you return, you'll see where your trip's conservation contribution went.</p></div>
+  <!-- WHY: sticky stacked image cards -->
+  <section class="stack" style={`--n:${why.length}`} data-theme="dark">
+    <div class="stack-sticky">
+      <div class="stack-bg" aria-hidden="true"><img src="/img/lion-dusk.jpg" alt=""></div>
+      <h2 class="t-display stack-head words">True stories. Five-star journeys.</h2>
+      <div class="stack-cards">
+        {why.map(c => (
+          <article class="s-card">
+            <img src={c.img} alt="" loading="lazy" style={`object-position:${c.pos}`}>
+            <div class="shade"></div>
+            <div class="copy"><span class="num">{c.n}</span><h3>{c.t}</h3><p>{c.p}</p></div>
+            <div class="dim"></div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA BANNER -->
-  <section class="banner" id="plan" aria-labelledby="plan-title">
-    <img src="/img/bighorn.jpg" alt="" loading="lazy">
-    <div class="wrap">
-      <img src="/img/mark.png" alt="" style="width:40px;height:auto">
-      <h2 id="plan-title">Tell us about your next expedition.</h2>
-      <p>An advisor will reply with ideas, seasons and a first itinerary, built around the places and stories that pull you.</p>
-      <a class="btn btn--brass" href="/plan/">Get started</a>
+  <!-- HOW: glass step cards -->
+  <section class="stack stack--glass" style={`--n:${steps.length}`} data-theme="dark" id="how">
+    <div class="stack-sticky">
+      <div class="stack-bg" aria-hidden="true"><img src="/img/mammoth-snow.jpg" alt=""></div>
+      <h2 class="t-display stack-head words">From first story to base camp.</h2>
+      <div class="stack-cards">
+        {steps.map(s => (
+          <article class="s-card">
+            <div class="copy"><span class="num">{s.n}</span><h3>{s.t}</h3><p>{s.p}</p></div>
+            <svg class="art" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+              {s.art === 'compass' && <><circle cx="60" cy="60" r="46"/><circle cx="60" cy="60" r="38" stroke-dasharray="2 4"/><path d="M60 22v8M60 90v8M22 60h8M90 60h8"/><path d="M60 34 68 60 60 86 52 60z"/><circle cx="60" cy="60" r="3"/></>}
+              {s.art === 'map' && <><path d="M18 30 44 20l32 12 26-10v68l-26 10-32-12-26 10z"/><path d="M44 20v68M76 32v68"/><path d="M28 64c8-10 18 4 26-6s16 2 24-6 12-2 16-6" stroke-dasharray="3 4"/><circle cx="94" cy="44" r="4"/></>}
+              {s.art === 'tent' && <><path d="M14 92h92"/><path d="M24 92 60 30l36 62"/><path d="M60 30v62M48 92l12-24 12 24"/><path d="M60 30l-6-10M60 30l6-10"/><circle cx="92" cy="28" r="7"/></>}
+              {s.art === 'peak' && <><path d="M10 96 44 40l16 24 14-20 36 52z"/><path d="M38 50l6 6 6-8"/><path d="M74 44v-22l14 6-14 6"/><path d="M10 96h100"/></>}
+            </svg>
+            <div class="dim"></div>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
+  <!-- STORIES -->
+  <section class="light-band sec" data-theme="light">
+    <h2 class="t-display sec-title words">Stories from the wild.</h2>
+    <div class="stories-grid">
+      {featured && (
+        <a class="feat-card reveal" href={`/stories/${featured.id}/`}>
+          <img src={featured.data.image} alt={featured.data.imageAlt} loading="lazy" style={`object-position:${featured.data.imagePosition}`}>
+          <div class="in">
+            <span class="pill">{featured.data.category}</span>
+            <h3 class="t-feature">{featured.data.title}</h3>
+            <div class="meta light"><span>{fmtDate(featured.data.date)}</span><span>•</span><span>{readingTime(featured.body)} mins read</span></div>
+          </div>
+        </a>
+      )}
+      <div class="list-col">{list.map((s, i) => <RowCard story={s} d={`${0.08 * i}s`} />)}</div>
+    </div>
+    <div class="center"><a class="btn btn-soft" href="/stories/">See all stories</a></div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" data-theme="dark">
+    <img src="/img/elk-snow.jpg" alt="" loading="lazy" style="object-position:55% 60%">
+    <div class="in">
+      <h2 class="t-display words">Tell us about your next expedition.</h2>
+      <a class="btn btn-solid reveal" style="--d:.3s" href="/plan/">Get started</a>
+    </div>
+  </section>
+
+  <script>
+    // Hero carousel: Noon-style centered rotation with blurred backdrop crossfade
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('.c-card'));
+    const bgs = Array.from(document.querySelectorAll<HTMLElement>('.hero-bg img'));
+    let active = 0, timer: number | undefined;
+    const n = cards.length;
+    function render() {
+      cards.forEach((c, i) => {
+        let o = i - active;
+        if (o > n / 2) o -= n; if (o < -n / 2) o += n;
+        const a = Math.abs(o);
+        c.style.setProperty('--o', String(o));
+        c.style.setProperty('--s', a === 0 ? '1.28' : String(1 - a * 0.06));
+        c.style.setProperty('--op', a > 3 ? '0' : a === 3 ? '.35' : String(1 - a * 0.12));
+        c.style.zIndex = String(10 - a);
+        c.classList.toggle('active', a === 0);
+        c.tabIndex = a > 2 ? -1 : 0;
+      });
+      bgs.forEach((b, i) => b.classList.toggle('on', i === active));
+    }
+    const next = () => { active = (active + 1) % n; render(); };
+    const start = () => { clearInterval(timer); timer = window.setInterval(next, 4200); };
+    cards.forEach((c, i) => c.addEventListener('click', e => {
+      if (i !== active) { e.preventDefault(); active = i; render(); start(); }
+    }));
+    render(); start();
+  </script>
 </Base>

@@ -1,16 +1,15 @@
 ---
+import { fmtDate, readingTime } from '../lib';
 interface Props { story: any; }
 const { story } = Astro.props;
 const d = story.data;
-const soon = d.draft;
-const Tag = soon ? 'div' : 'a';
+const Tag = d.draft ? 'div' : 'a';
 ---
-<Tag class={`card${soon ? ' soon' : ''}`} href={soon ? undefined : `/stories/${story.id}/`}>
-  <figure class="ph" style="--ar: 4/5">
+<Tag class:list={['card', 'reveal', { soon: d.draft }]} href={d.draft ? undefined : `/stories/${story.id}/`} data-cat={d.category}>
+  <div class="thumb">
     <img src={d.image} alt={d.imageAlt} loading="lazy" style={`object-position: ${d.imagePosition}`}>
-    {soon && <span class="caps soon-flag">Coming soon</span>}
-  </figure>
-  <span class="caps tag">{d.category} · {d.region}</span>
-  <h3>{d.title}</h3>
-  <p>{d.dek}</p>
+    <span class="pill">{d.category}</span>
+  </div>
+  <h3 class="t-title">{d.title}</h3>
+  <div class="meta">{d.draft ? <span class="soon-tag">Coming soon</span> : <><time datetime={d.date.toISOString()}>{fmtDate(d.date)}</time><span aria-hidden="true">•</span><span>{readingTime(story.body)} mins read</span></>}</div>
 </Tag>

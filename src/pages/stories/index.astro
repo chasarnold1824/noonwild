@@ -3,12 +3,23 @@ import Base from '../../layouts/Base.astro';
 import StoryCard from '../../components/StoryCard.astro';
 import { allStories } from '../../lib';
 const stories = await allStories();
+const cats = ['All', 'Destination guide', 'Explorer stories', 'Expert advice'];
 ---
-<Base title="Stories" description="Destination guides and true explorer stories from the Noon Wild Journal.">
-  <section class="wrap page-head">
-    <span class="caps tag">The journal</span>
-    <h1>Stories from the wild</h1>
-    <p>Destination guides, expert advice and the true stories of the explorers who went first, with how to follow them today.</p>
+<Base title="Stories" description="Destination guides and true explorer stories from Noon Wild." light>
+  <section class="page-top" data-theme="light">
+    <h1 class="t-display words">Stories from the wild.</h1>
+    <p class="reveal" style="--d:.3s">Destination guides, expert advice and the true stories of the explorers who went first, with how to follow them today.</p>
+    <div class="filters reveal" style="--d:.4s">{cats.map((c, i) => <button type="button" class:list={{ on: i === 0 }} data-f={c}>{c}</button>)}</div>
   </section>
-  <section class="wrap sec"><div class="cards">{stories.map(s => <StoryCard story={s} />)}</div></section>
+  <section class="sec" style="padding-top:0" data-theme="light">
+    <div class="cards">{stories.map(s => <StoryCard story={s} />)}</div>
+  </section>
+  <script>
+    const btns = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-f]'));
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('.card'));
+    btns.forEach(b => b.addEventListener('click', () => {
+      btns.forEach(x => x.classList.toggle('on', x === b));
+      cards.forEach(c => c.style.display = b.dataset.f === 'All' || c.dataset.cat === b.dataset.f ? '' : 'none');
+    }));
+  </script>
 </Base>

@@ -38,6 +38,12 @@ Read before writing: `references/format.md` (structure and voice, modeled on noo
    - Set `draft: false`, set `date` to today, set `featured: true` only if asked (and set the previous featured story to false).
 
 8. **Submit for approval.** Create branch `story/<slug>`, commit, push, and open a pull request titled `Story: <title>`. In the PR body include: a two-line summary, the fact table, the image list (file, source page, credit), and anything uncertain. Do not merge. Chas approves by merging, which publishes the story.
+   - Open the PR with the GitHub API (this works through the session's git proxy even when `gh` is not logged in):
+     ```bash
+     curl -sS -X POST -H "Content-Type: application/json" -H "Accept: application/vnd.github+json" \
+       https://api.github.com/repos/chasarnold1824/noonwild/pulls -d @pr.json
+     ```
+     with `pr.json` = `{"title": "...", "head": "story/<slug>", "base": "main", "body": "..."}`. Netlify builds a deploy preview for the PR so Chas can see the page before merging.
    - If GitHub access fails, save the files and report exactly what to upload.
    - Only push straight to `main` if Chas has explicitly switched the run to auto-publish.
 

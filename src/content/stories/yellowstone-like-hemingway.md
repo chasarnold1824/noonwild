@@ -4,10 +4,11 @@ dek: Through the 1930s Hemingway kept returning to a ranch just past Yellowstone
 category: Destination guide
 region: Yellowstone
 date: 2026-11-09
-image: /img/yellowstone-bison.jpg
-imageAlt: A lone bison grazing in a wide golden valley below forested slopes and cliffs.
-imagePosition: 50% 60%
-imageCredit: "Photo: Unsplash."
+image: https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/BisonLamar.jpg
+imageAlt: A herd of bison grazing along the hillsides of the Lamar Valley, the heart of Hemingway's corner of Yellowstone.
+imagePosition: 50% 50%
+imageCredit: "Image courtesy of NPS / Jacob W. Frank."
+imageSourceUrl: https://www.usgs.gov/media/images/a-group-bison-lamar-valley
 keyTakeaways:
   - Hemingway's Yellowstone is the northeast corner, the Lamar Valley and Cooke City, not Old Faithful.
   - Go in winter for wolves and solitude; the Gardiner to Cooke City road is the only one open to cars.
@@ -43,6 +44,8 @@ sources:
     url: https://home.nps.gov/yell/learn/news/26026.htm
   - title: "USDA Forest Service: Beartooth Scenic Byway"
     url: https://fs.usda.gov/r01/custergallatin/recreation/explore-forest/beartooth-scenic-byway-all-american-road
+  - title: "Sage Lodge: Gallery"
+    url: https://sagelodge.com/gallery/
   - title: "MICHELIN Guide: Sage Lodge"
     url: https://guide.michelin.com/en/hotels-stays/Yellowstone-National-Park/sage-lodge-12669
 ---
@@ -50,8 +53,6 @@ sources:
 In the summer of 1930, Ernest Hemingway drove west across Wyoming with his wife Pauline and his son Jack to a guest ranch on the Clarks Fork of the Yellowstone River. The L Bar T, run by Lawrence and Olive Nordquist, sat on the Wyoming side of the line, a few miles from Cooke City, Montana, and just beyond the northeast gate of Yellowstone National Park. He liked it at once, partly because nobody there seemed to know who he was.
 
 He settled into a routine. Olive Nordquist later remembered that he started each day with a big breakfast and half a bottle of wine, then went to his cabin to write. The book on his desk was *Death in the Afternoon*, and according to the Hemingway Society he finished it at the ranch. Afternoons went to the river, where the Clarks Fork and its tributaries offered some of the best fly fishing in the West, and to the mountains, where local wranglers took him after elk and bear.
-
-> He started each day with a big breakfast and half a bottle of wine, then retired to his cabin to write.
 
 That first summer ended badly. In November 1930 he rolled his car on one of the narrow roads of the time and broke his arm, and spent about two months in a Billings hospital. He came back anyway: in 1936, when he worked on *To Have and Have Not*, and again in 1938 and 1939. One of his last stories, "A Man of the World," is set in Cooke City.
 
@@ -62,7 +63,7 @@ Ninety years on, his corner of Yellowstone is still the quiet one. Here is how t
 Most visitors come for Old Faithful and the geysers in the park's southwest. Hemingway's country is the opposite end: the Lamar Valley, a wide river valley often called America's Serengeti for the bison, elk, wolves and bears that move through it, and the small mountain town of Cooke City beyond. It is the part of the park built for early mornings with a spotting scope, and for travelers who would rather watch a wolf pack than a geyser schedule.
 
 
-<figure><img src="/img/grizzly-snow.jpg" alt="A young grizzly bear standing in fresh snow among bare branches." loading="lazy"><figcaption>A grizzly in early snow near the park. Photo: Unsplash.</figcaption></figure>
+<figure><img src="https://images.unsplash.com/photo-1663870542223-5d8ed02fc151?auto=format&fit=crop&w=1600&q=80" alt="A young grizzly bear standing in fresh snow among bare branches." loading="lazy"><figcaption>A grizzly in early snow. Image courtesy of Unsplash.</figcaption></figure>
 
 ## When should you go?
 
@@ -71,11 +72,13 @@ Most visitors come for Old Faithful and the geysers in the park's southwest. Hem
 **Summer**, from late May to mid-October, opens the full route. The Beartooth Highway climbs from Red Lodge, Montana, over the 10,947-foot Beartooth Pass and down into Cooke City. The Forest Service suggests allowing at least two to three hours for the drive, and snow often lingers at the top into July. This is also the season for the Clarks Fork itself, and for fishing the water Hemingway fished.
 
 
-<figure><img src="/img/mammoth-snow.jpg" alt="Snow-covered travertine terraces in winter fog." loading="lazy"><figcaption>The travertine terraces at Mammoth Hot Springs in winter. Photo: Chas Arnold.</figcaption></figure>
+<figure><img src="/img/mammoth-snow.jpg" alt="Snow-covered travertine terraces in winter fog." loading="lazy"><figcaption>The travertine terraces at Mammoth Hot Springs in winter. Image courtesy of Chas Arnold.</figcaption></figure>
 
 ## Where should you stay?
 
 Start in the Paradise Valley, the stretch of the Yellowstone River between Livingston and Gardiner. **Sage Lodge**, in Pray, Montana, is the strongest base on this side of the park: 38 rooms on the river, a spa, two restaurants built around local ranches, and three MICHELIN Keys, the guide's highest rating. It sits under an hour from the North Entrance, close enough for day trips to Mammoth and the Lamar Valley.
+
+<figure><img src="https://sagelodge.com/wp-content/uploads/2022/11/1440x765-man-fly-fishing-on-the-private-pond-with-the-Lodge-in-the-background-at-Sage-Lodge-Montana-Resort-near-Yellowstone.jpg" alt="An angler fly fishing on the private pond at Sage Lodge, with the lodge behind him in the Paradise Valley." loading="lazy"><figcaption>Fly fishing on the pond at Sage Lodge, Paradise Valley. Image courtesy of <a href="https://sagelodge.com/gallery/" rel="noopener">Sage Lodge</a>.</figcaption></figure>
 
 For the dawn starts that wildlife watching demands, your advisor can pair Sage Lodge with a simpler, private base near Cooke City or Silver Gate for two or three nights, so you are already at the east end of the valley when the light comes up.
 

@@ -18,12 +18,15 @@ date: 2026-11-09
 image: /img/yellowstone-bison.jpg  # file goes in public/img/
 imageAlt: Plain description of what is in the picture.
 imagePosition: 50% 60%             # optional crop focus
-imageCredit: Photograph via Unsplash
+imageCredit: "Image courtesy of NPS / Jacob W. Frank."
 featured: false                    # true puts it in the big homepage slot (one at a time)
 draft: false                       # true = shows as "Coming soon", no page yet
-atAGlance:                         # optional sidebar facts
-  - label: Fly into
-    value: Bozeman, Montana
+keyTakeaways:                      # 3 to 5 bullets
+  - ...
+faq:                               # "What You Actually Want to Know"
+  - q: ...
+    a: ...
+imageSourceUrl: https://...        # page the hero image came from
 sources:                           # every factual claim must trace to one of these
   - title: "Publisher: Page title"
     url: https://...
