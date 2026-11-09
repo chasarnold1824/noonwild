@@ -10,17 +10,17 @@ const featured = stories.find(s => s.data.featured && !s.data.draft) ?? stories[
 const list = stories.filter(s => s !== featured).slice(0, 4);
 
 const destinations = [
-  { name: 'Rwanda', img: unsplash('photo-1722291731448-3afe029611a6', 1200), href: '/destinations/rwanda/', vid: '38750354/16464978_960_540_60fps.mp4', vpos: '53%' },
-  { name: 'The Pantanal', img: unsplash('photo-1595600896602-6b9052fe0c5b', 1600), pos: '52% 45%', href: '/destinations/pantanal/', vid: '12340339/12340339-sd_960_540_30fps.mp4', vpos: '50%', at: 4 },
-  { name: 'Yellowstone', img: unsplash('photo-1778704828743-31586fcea70d', 1200), href: '/destinations/yellowstone/', vid: '3735933/3735933-sd_960_540_24fps.mp4', vpos: '66%' },
+  { name: 'Rwanda', img: unsplash('photo-1722291731448-3afe029611a6', 1200), href: '/destinations/rwanda/', vid: '38750354/16464978_960_540_60fps.mp4', vpos: '53% 50%' },
+  { name: 'The Pantanal', img: unsplash('photo-1595600896602-6b9052fe0c5b', 1600), pos: '52% 45%', href: '/destinations/pantanal/', vid: 'https://cdn.pixabay.com/video/2026/04/18/347489_small.mp4', vpos: '46% 50%' },
+  { name: 'Yellowstone', img: unsplash('photo-1778704828743-31586fcea70d', 1200), href: '/destinations/yellowstone/', vid: '3735933/3735933-sd_960_540_24fps.mp4', vpos: '66% 50%' },
   { name: 'Patagonia', img: unsplash('photo-1715356758153-6d58ae44e8fe', 1200), href: '/destinations/patagonia/', vid: '37271731/15789871_960_540_30fps.mp4' },
-  { name: 'Galápagos', img: unsplash('photo-1706957614198-8d2e5f0ed6ea', 1200), href: '/destinations/galapagos/', vid: '35552050/15063098_960_540_60fps.mp4', vpos: '44%' },
-  { name: 'Namibia', img: unsplash('photo-1506710507565-203b9f24669b', 1200), href: '/destinations/namibia/', vid: '34162311/14483412_960_540_30fps.mp4' },
-  { name: 'Antarctica', img: unsplash('photo-1551415923-a2297c7fda79', 1600), pos: '40% 55%', href: '/destinations/antarctica/', vid: '6299731/6299731-sd_960_540_30fps.mp4', vpos: '64%' },
+  { name: 'Galápagos', img: unsplash('photo-1706957614198-8d2e5f0ed6ea', 1200), href: '/destinations/galapagos/', vid: '39773158/16960711_540_960_30fps.mp4', vpos: '50% 72%' },
+  { name: 'Namibia', img: unsplash('photo-1506710507565-203b9f24669b', 1200), href: '/destinations/namibia/', vid: '26730260/11994812_1024_540_30fps.mp4', vpos: '45% 50%' },
+  { name: 'Antarctica', img: unsplash('photo-1551415923-a2297c7fda79', 1600), pos: '40% 55%', href: '/destinations/antarctica/', vid: '6299729/6299729-hd_1076_1318_30fps.mp4', vpos: '50% 40%' },
   { name: 'East Africa', img: '/img/lions-greeting.jpg', href: '/destinations/east-africa/', vid: '11528208/11528208-sd_540_960_30fps.mp4' },
   { name: 'The Arctic', img: '/img/polar-bear.jpg', href: '/destinations/the-arctic/', vid: '34492362/14614694_960_540_30fps.mp4' },
-  { name: 'Central America', img: '/img/copan-stela.jpg', href: '/destinations/central-america/', vid: '17482885/17482885-sd_960_540_25fps.mp4', vpos: '55%' },
-  { name: 'Uganda', img: '/img/elephant.jpg', href: '/destinations/uganda/', vid: '31223127/13336200_960_540_60fps.mp4', vpos: '42%' },
+  { name: 'Central America', img: '/img/copan-stela.jpg', href: '/destinations/central-america/', vid: '17482885/17482885-sd_960_540_25fps.mp4', vpos: '55% 50%' },
+  { name: 'Uganda', img: '/img/elephant.jpg', href: '/destinations/uganda/', vid: '31223127/13336200_960_540_60fps.mp4', vpos: '42% 50%' },
 ];
 
 const why = [
@@ -41,12 +41,13 @@ const steps = [
   <section class="hero" data-theme="dark" id="destinations">
     <div class="hero-bg" aria-hidden="true">
       {destinations.map((d, i) => <img src={cdn(d.img, 1200)} alt="" class:list={{ on: i === 0 }} loading={i < 2 ? 'eager' : 'lazy'}>)}
+      <video class="bg-vid" muted loop playsinline preload="none"></video>
     </div>
     <div class="hero-body">
       <p class="carousel-label enter" style="--d:.2s">Featured destinations</p>
       <div class="carousel enter" style="--d:.28s" aria-label="Featured destinations">
         {destinations.map((d, i) => (
-          <a class="c-card" href={d.href} data-i={i}><img src={cdn(d.img, 800)} alt={d.name} style={`object-position:${(d as any).pos ?? '50% 50%'}`}>{(d as any).vid && <video muted loop playsinline preload="none" aria-hidden="true" data-src={`https://videos.pexels.com/video-files/${(d as any).vid}`} data-at={(d as any).at ?? 0} style={`object-position:${(d as any).vpos ?? '50%'} 50%`}></video>}<span>{d.name}</span></a>
+          <a class="c-card" href={d.href} data-i={i}><img src={cdn(d.img, 800)} alt={d.name} style={`object-position:${(d as any).pos ?? '50% 50%'}`}>{(d as any).vid && <video muted loop playsinline preload="none" aria-hidden="true" data-src={(d as any).vid.startsWith('http') ? (d as any).vid : `https://videos.pexels.com/video-files/${(d as any).vid}`} data-at={(d as any).at ?? 0} style={`object-position:${(d as any).vpos ?? '50% 50%'}`}></video>}<span>{d.name}</span></a>
         ))}
       </div>
       <h1 class="t-h1 enter" style="--d:.45s">Go where the explorers went.</h1>
@@ -152,6 +153,7 @@ const steps = [
     // Card videos: only the cards near the centre load and play; the photo shows until a frame is ready.
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     let heroOn = true;
+    const bgVid = document.querySelector<HTMLVideoElement>('.bg-vid');
     function syncVideos() {
       cards.forEach((c, i) => {
         const v = c.querySelector('video'); if (!v || reduce) return;
@@ -161,6 +163,19 @@ const steps = [
           v.play().catch(() => {});
         } else v.pause();
       });
+      // Blurred backdrop plays the active card's clip, like Noon.
+      const av = cards[active].querySelector('video');
+      if (bgVid && av && !reduce) {
+        if (bgVid.dataset.src !== av.dataset.src) {
+          bgVid.classList.remove('on');
+          bgVid.dataset.src = av.dataset.src!;
+          bgVid.src = av.dataset.src!;
+          bgVid.style.objectPosition = av.style.objectPosition;
+          bgVid.addEventListener('loadeddata', () => { try { bgVid.currentTime = av.currentTime; } catch {} }, { once: true });
+          bgVid.addEventListener('playing', () => bgVid.classList.add('on'), { once: true });
+        }
+        if (heroOn && !document.hidden) bgVid.play().catch(() => {}); else bgVid.pause();
+      }
     }
     new IntersectionObserver(es => { heroOn = es[0].isIntersecting; syncVideos(); }).observe(document.querySelector('.hero')!);
     document.addEventListener('visibilitychange', syncVideos);
