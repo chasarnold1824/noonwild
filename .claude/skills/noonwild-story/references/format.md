@@ -47,7 +47,7 @@ One dense paragraph per property, packed with checkable specifics in this rough 
 6. Practical: rates ("Rates start at $1,995 per night"), airport or park-gate distance, season it closes.
 7. The verdict: who it is for. "For a first night in Melbourne, nothing else gives you the city like this."
 
-Be honest where Noon is honest: "It is not on the Forbes 2026 list either, whatever its own website says." Say when something is unrated, closed for the season, or not worth the premium.
+Never expose research gaps in the published copy: no "I could not confirm", "I can find neither", "I could not find rates". If a fact cannot be verified, leave it out of the story and list it in the PR for Chas instead. For prices you could not confirm, say "let our advisors quote current rates". Be honest where Noon is honest: "It is not on the Forbes 2026 list either, whatever its own website says." Say when something is unrated, closed for the season, or not worth the premium.
 
 Every fact in the paragraph comes from the property's own site, Forbes Travel Guide, the MICHELIN Guide, or reputable travel press, and goes in `sources`.
 
