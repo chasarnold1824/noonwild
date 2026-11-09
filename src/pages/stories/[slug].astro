@@ -59,7 +59,7 @@ const url = new URL(`/stories/${story.id}/`, Astro.site).toString();
             {d.faq.length > 0 && (
               <section class="faq">
                 <h2 id="what-you-actually-want-to-know">What You Actually Want to Know</h2>
-                {d.faq.map(f => <p><strong>{f.q}</strong>{f.a}</p>)}
+                {d.faq.map(f => <div class="faq-item"><h3>{f.q}</h3><p>{f.a}</p></div>)}
               </section>
             )}
             <p class="closer">Tell a Noon Wild advisor which story pulled you in, and we will build the trip around it. <a href={`/plan/?story=${story.id}`}>Start the conversation.</a></p>

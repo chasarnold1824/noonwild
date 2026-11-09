@@ -289,3 +289,8 @@ h1, h2, h3, .serif { font-family: var(--font-serif); font-weight: 400; font-vari
 .form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--gold); }
 .form .btn { justify-self: start; }
 .hp { position: absolute; left: -9999px; }
+
+/* FAQ: question on its own line, answer below (Noon's format) */
+.faq-item { margin-bottom: 22px; }
+.article .faq-item h3 { margin: 0 0 6px; font-family: var(--font-sans); font-weight: 500; font-size: 17px; line-height: 26px; letter-spacing: -.16px; }
+.article .faq-item p { margin: 0; }
