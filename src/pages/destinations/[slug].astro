@@ -1,0 +1,104 @@
+---
+import Base from '../../layouts/Base.astro';
+import { allStories, fmtDate, readingTime } from '../../lib';
+import { cdn } from '../../img.mjs';
+import { destinations } from '../../data/destinations';
+
+export function getStaticPaths() {
+  return destinations.map(d => ({ params: { slug: d.slug }, props: { dest: d } }));
+}
+const { dest } = Astro.props;
+const all = await allStories();
+const own = all.filter(s => dest.regions.includes(s.data.region));
+// Like Noon, keep the feed full: after this destination's stories, add other journal stories (published first).
+const fill = all.filter(s => !own.includes(s)).slice(0, Math.max(0, 6 - own.length));
+const stories = [...own, ...fill];
+const cats = ['All', ...new Set(stories.map(s => s.data.category))];
+
+// Feed items: stories, then a "plan a trip" card. Laid out Noon-style in columns,
+// alternating tall and short cards.
+type Item = { kind: 'story', s: any } | { kind: 'plan' };
+const storyItems: Item[] = stories.map(s => ({ kind: 'story' as const, s }));
+const items: Item[] = [...storyItems.slice(0, own.length || 0), { kind: 'plan' as const }, ...storyItems.slice(own.length || 0)];
+const COLS = 4;
+const cols: { item: Item; tall: boolean }[][] = Array.from({ length: COLS }, () => []);
+items.forEach((item, i) => {
+  const c = i % COLS;
+  const row = Math.floor(i / COLS);
+  cols[c].push({ item, tall: (c + row) % 2 === 0 });
+});
+---
+<Base title={dest.name} description={dest.blurb} image={dest.img} light>
+  <div class="container dest-page" data-theme="light">
+    <p class="dest-crumb"><a href="/">Home</a> / <a href="/destinations/">Destinations</a> / <span>{dest.name}</span></p>
+    <div class="dest-head">
+      <h1 class="dest-title words">{dest.name}</h1>
+      <p class="dest-blurb reveal" style="--d:.08s">{dest.blurb}</p>
+    </div>
+  </div>
+
+  <div class="dest-filters-wrap" data-theme="light">
+    <div class="dest-filters" role="toolbar" aria-label="Filter stories">
+      {cats.map((c, i) => <button type="button" class:list={['dest-filter', { 'is-active': i === 0 }]} data-f={c}>{c}</button>)}
+    </div>
+  </div>
+
+  <div class="container dest-main" data-theme="light">
+    {own.length === 0 && <p class="dest-empty reveal">Our first {dest.name} stories are on their way. In the meantime, here is more from the journal.</p>}
+    <div class="dest-feed reveal">
+      {cols.map(col => (
+        <div class="dest-col">
+          {col.map(({ item, tall }) => item.kind === 'story' ? (
+            item.s.data.draft ? (
+              <div class:list={['dest-guide', 'is-soon', tall ? 'dest-guide-tall' : 'dest-guide-short']} data-cat={item.s.data.category}>
+                <img src={cdn(item.s.data.image, 900)} alt={item.s.data.imageAlt} loading="lazy" style={`object-position:${item.s.data.imagePosition}`}>
+                <span class="pill">{item.s.data.category}</span>
+                <div class="dest-guide-copy"><h2>{item.s.data.title}</h2><p class="dest-guide-meta">Coming soon</p></div>
+              </div>
+            ) : (
+              <a class:list={['dest-guide', tall ? 'dest-guide-tall' : 'dest-guide-short']} href={`/stories/${item.s.id}/`} data-cat={item.s.data.category}>
+                <img src={cdn(item.s.data.image, 900)} alt={item.s.data.imageAlt} loading="lazy" style={`object-position:${item.s.data.imagePosition}`}>
+                <span class="pill">{item.s.data.category}</span>
+                <div class="dest-guide-copy"><h2>{item.s.data.title}</h2><p class="dest-guide-meta">{fmtDate(item.s.data.date)} • {readingTime(item.s.body)} min read</p></div>
+              </a>
+            )
+          ) : (
+            <a class:list={['dest-plan', tall ? 'dest-guide-tall' : 'dest-guide-short']} href="/plan/" data-cat="All">
+              <img src="/img/mark.png" alt="" class="dest-plan-mark">
+              <div>
+                <h2>Plan a trip to {dest.name}.</h2>
+                <p>Tell an advisor what draws you there. We reply with seasons, lodges and a first itinerary.</p>
+              </div>
+              <span class="btn btn-solid">Get started</span>
+            </a>
+          ))}
+        </div>
+      ))}
+    </div>
+
+    <section class="dest-more">
+      <h2 class="t-display words">More destinations.</h2>
+      <div class="dest-grid">
+        {destinations.filter(d => d.slug !== dest.slug).slice(0, 5).map(d => (
+          <a class="dest-card reveal" href={`/destinations/${d.slug}/`}>
+            <img src={cdn(d.img, 800)} alt={d.name} loading="lazy" style={`object-position:${d.pos}`}>
+            <span class="dest-card-scrim"></span>
+            <h3>{d.name}</h3>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const btns = Array.from(document.querySelectorAll<HTMLButtonElement>('.dest-filter'));
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('.dest-feed [data-cat]'));
+    btns.forEach(b => b.addEventListener('click', () => {
+      btns.forEach(x => x.classList.toggle('is-active', x === b));
+      cards.forEach(c => c.style.display = b.dataset.f === 'All' || c.dataset.cat === b.dataset.f || c.dataset.cat === 'All' ? '' : 'none');
+    }));
+    const wrap = document.querySelector('.dest-filters-wrap')!;
+    const onScroll = () => wrap.classList.toggle('is-stuck', wrap.getBoundingClientRect().top <= 75);
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  </script>
+</Base>
