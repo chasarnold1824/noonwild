@@ -1,10 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Page not found">
-  <section class="wrap page-head" style="padding-bottom: clamp(80px, 10vw, 140px)">
-    <span class="caps tag">Off the map</span>
-    <h1>This trail goes nowhere.</h1>
-    <p><a class="link" href="/">Back to Noon Wild <span class="arr" aria-hidden="true">→</span></a></p>
+<Base title="Page not found" light>
+  <section class="page-top" style="padding-bottom:140px" data-theme="light">
+    <h1 class="t-display words">This trail goes nowhere.</h1>
+    <div class="center reveal" style="--d:.3s"><a class="btn btn-dark" href="/">Back to Noon Wild</a></div>
   </section>
 </Base>

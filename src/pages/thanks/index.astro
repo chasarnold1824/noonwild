@@ -1,11 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 ---
-<Base title="Thank you">
-  <section class="wrap page-head" style="padding-bottom: clamp(80px, 10vw, 140px)">
-    <img src="/img/mark.png" alt="" style="width:40px;height:auto;margin-bottom:20px">
-    <h1>Thank you.</h1>
-    <p>An advisor will be in touch within two business days with first ideas for your trip.</p>
-    <p style="margin-top:28px"><a class="link" href="/stories/">Read the stories while you wait <span class="arr" aria-hidden="true">→</span></a></p>
+<Base title="Thank you" light>
+  <section class="page-top" style="padding-bottom:140px" data-theme="light">
+    <h1 class="t-display words">Thank you.</h1>
+    <p class="reveal" style="--d:.3s">An advisor will be in touch within two business days with first ideas for your trip.</p>
+    <div class="center reveal" style="--d:.4s"><a class="btn btn-soft" href="/stories/">Read the stories while you wait</a></div>
   </section>
 </Base>
