@@ -64,7 +64,7 @@ const clips = [
     const bars = Array.from(root.querySelectorAll<HTMLElement>('.m-bars i'));
     const CUT = 1800; // ms per shot
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let n = 0, front = a, back = b, timer: number | undefined, running = false, gen = 0;
+    let n = 0, front = a, back = b, timer: number | undefined, running = false, gen = 0, lastShown = -1e9;
 
     // Load a clip and seek to its in-point. Resolves true only once a real frame is decoded at the in-point,
     // false if it is not ready in time (that shot is then skipped, so nothing ever flashes half-loaded).
@@ -87,8 +87,12 @@ const clips = [
       let ok = await prime(back, n);
       // If this shot is slow, try the next one instead of showing a blank or a stale frame.
       for (let tries = 0; !ok && tries < 3 && g === gen; tries++) { n = (n + 1) % clips.length; ok = await prime(back, n); }
+      // Never cut before the current shot has held for the full beat, whatever woke the loop.
+      const hold = CUT - (performance.now() - lastShown);
+      if (hold > 0) await new Promise(r => setTimeout(r, hold));
       if (!running || g !== gen) return;
       if (ok) {
+        lastShown = performance.now();
         back.play().catch(() => {});
         back.classList.add('is-on'); front.classList.remove('is-on');
         
