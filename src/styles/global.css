@@ -296,21 +296,21 @@ h1, h2, h3, .serif { font-family: var(--font-serif); font-weight: 400; font-vari
 .article .faq-item p { margin: 0; }
 
 /* ---------- Destination pages (Noon's /destinations/<place>) ---------- */
-.dest-crumb { padding-top: 96px; font-size: 15px; color: var(--ink-2); }
-.dest-crumb a { color: var(--ink); }
-.dest-crumb a:hover { color: var(--gold-ink); }
+.dest-crumb { padding-top: 96px; font-size: 15px; color: var(--on-dark-2); }
+.dest-crumb a { color: var(--on-dark); }
+.dest-crumb a:hover { color: #D9B76E; }
 .dest-head { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
-.dest-title { font-size: 48px; line-height: 1.05; letter-spacing: -.02em; color: var(--ink); }
-.dest-blurb { max-width: 640px; color: var(--ink-2); font-size: 17px; line-height: 26px; }
+.dest-title { font-size: 48px; line-height: 1.05; letter-spacing: -.02em; color: var(--on-dark); }
+.dest-blurb { max-width: 640px; color: var(--on-dark-2); font-size: 17px; line-height: 26px; }
 @media (min-width: 768px) { .dest-crumb { padding-top: 120px; } .dest-head { gap: 16px; } .dest-title { font-size: 80px; line-height: 90px; } .dest-blurb { font-size: 18px; line-height: 28px; } }
 
 .dest-filters-wrap { position: sticky; top: 64px; z-index: 40; margin-top: 24px; transition: background-color .35s, border-color .35s, backdrop-filter .35s; border-bottom: 1px solid transparent; }
-.dest-filters-wrap.is-stuck { background: rgba(243,235,220,.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom-color: var(--rule); }
+.dest-filters-wrap.is-stuck { background: rgba(24,41,31,.72); backdrop-filter: blur(16px) saturate(1.2); -webkit-backdrop-filter: blur(16px) saturate(1.2); border-bottom-color: rgba(243,235,219,.12); }
 .dest-filters { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; max-width: calc(var(--max) + var(--gutter) * 2); margin-inline: auto; padding: 12px var(--gutter); }
 .dest-filters::-webkit-scrollbar { display: none; }
-.dest-filter { flex: none; min-height: 38px; padding: 9px 16px; border: 0; border-radius: 999px; background: rgba(176,138,64,.14); color: var(--ink); font: 400 15px/1 var(--font-sans); cursor: pointer; transition: background .25s, transform .25s; }
-.dest-filter:hover { background: rgba(176,138,64,.24); transform: translateY(-1px); }
-.dest-filter.is-active { background: var(--dark); color: var(--on-dark); transform: none; }
+.dest-filter { flex: none; min-height: 38px; padding: 9px 16px; border: 0; border-radius: 999px; background: rgba(243,235,219,.1); color: var(--on-dark); font: 400 15px/1 var(--font-sans); cursor: pointer; transition: background .25s, transform .25s; }
+.dest-filter:hover { background: rgba(243,235,219,.18); transform: translateY(-1px); }
+.dest-filter.is-active { background: var(--gold); color: #1B140A; transform: none; }
 
 .dest-main { padding-block: 20px 120px; }
 .dest-feed { display: flex; flex-direction: column; gap: 16px; }
@@ -329,15 +329,15 @@ a.dest-guide:hover, .dest-plan:hover { transform: translateY(-3px); box-shadow: 
 a.dest-guide:hover > img { transform: scale(1.04); }
 .dest-guide.is-soon > img { filter: saturate(.75); }
 .dest-guide.is-soon .dest-guide-meta { color: #D9B76E; }
-.dest-plan { background: var(--dark); justify-content: flex-start; gap: 16px; }
+.dest-plan { background: var(--dark-2); box-shadow: inset 0 0 0 1px rgba(208,174,108,.35); justify-content: flex-start; gap: 16px; }
 .dest-plan-mark { width: 30px; height: auto; }
 .dest-plan h2 { font-size: 26px; line-height: 1.1; letter-spacing: -.02em; color: var(--on-dark); }
 .dest-plan p { margin-top: 8px; color: var(--on-dark-2); font-size: 15px; line-height: 22px; }
 .dest-plan .btn { margin-top: auto; align-self: flex-start; }
-.dest-empty { margin: 4px 0 20px; color: var(--ink-2); }
+.dest-empty { margin: 4px 0 20px; color: var(--on-dark-2); }
 
 .dest-more { margin-top: 96px; }
-.dest-more h2 { color: var(--ink); margin-bottom: 32px; }
+.dest-more h2 { color: var(--on-dark); margin-bottom: 32px; }
 .dest-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 @media (min-width: 768px) { .dest-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; } }
 @media (min-width: 900px) { .dest-grid { grid-template-columns: repeat(4, minmax(0,1fr)); } }

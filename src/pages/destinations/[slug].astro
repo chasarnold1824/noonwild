@@ -28,8 +28,8 @@ items.forEach((item, i) => {
   cols[c].push({ item, tall: (c + row) % 2 === 0 });
 });
 ---
-<Base title={dest.name} description={dest.blurb} image={dest.img} light>
-  <div class="container dest-page" data-theme="light">
+<Base title={dest.name} description={dest.blurb} image={dest.img}>
+  <div class="container dest-page" data-theme="dark">
     <p class="dest-crumb"><a href="/">Home</a> / <a href="/destinations/">Destinations</a> / <span>{dest.name}</span></p>
     <div class="dest-head">
       <h1 class="dest-title words">{dest.name}</h1>
@@ -37,13 +37,13 @@ items.forEach((item, i) => {
     </div>
   </div>
 
-  <div class="dest-filters-wrap" data-theme="light">
+  <div class="dest-filters-wrap" data-theme="dark">
     <div class="dest-filters" role="toolbar" aria-label="Filter stories">
       {cats.map((c, i) => <button type="button" class:list={['dest-filter', { 'is-active': i === 0 }]} data-f={c}>{c}</button>)}
     </div>
   </div>
 
-  <div class="container dest-main" data-theme="light">
+  <div class="container dest-main" data-theme="dark">
     {own.length === 0 && <p class="dest-empty reveal">Our first {dest.name} stories are on their way. In the meantime, here is more from the journal.</p>}
     <div class="dest-feed reveal">
       {cols.map(col => (

@@ -3,15 +3,15 @@ import Base from '../../layouts/Base.astro';
 import { cdn } from '../../img.mjs';
 import { destinations } from '../../data/destinations';
 ---
-<Base title="Destinations" description="Where Noon Wild travels: the wild places with the best stories, and the finest lodges at their edge." light>
-  <div class="container dest-page" data-theme="light">
+<Base title="Destinations" description="Where Noon Wild travels: the wild places with the best stories, and the finest lodges at their edge.">
+  <div class="container dest-page" data-theme="dark">
     <p class="dest-crumb"><a href="/">Home</a> / <span>Destinations</span></p>
     <div class="dest-head">
       <h1 class="dest-title words">Destinations</h1>
       <p class="dest-blurb reveal" style="--d:.08s">The wild places with the best stories, and the finest camps, lodges and ships at their edge.</p>
     </div>
   </div>
-  <div class="container dest-main" data-theme="light">
+  <div class="container dest-main" data-theme="dark">
     <div class="dest-grid dest-grid--all">
       {destinations.map((d, i) => (
         <a class="dest-card reveal" style={`--d:${(i % 5) * 0.05}s`} href={`/destinations/${d.slug}/`}>
