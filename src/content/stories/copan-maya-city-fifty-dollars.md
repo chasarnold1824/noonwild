@@ -5,7 +5,7 @@ category: Explorer stories
 region: Honduras
 date: 2026-11-09
 image: https://images.unsplash.com/photo-1705680798089-447cf2a7dfad?auto=format&fit=crop&w=2400&q=80
-imageAlt: "A carved stone sculpture at the Maya site of Copán in western Honduras, against a stone wall."
+imageAlt: "The Hieroglyphic Stairway at Copán in western Honduras under its protective canopy, with a carved stela at its foot."
 imagePosition: "50% 40%"
 imageCredit: "Image courtesy of Unsplash."
 imageSourceUrl: https://unsplash.com/photos/a-sculpture-of-a-man-on-a-horse-in-front-of-a-stone-wall-xcg-DwD_oVA
