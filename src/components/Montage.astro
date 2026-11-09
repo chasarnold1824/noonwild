@@ -3,20 +3,34 @@
 // (pexels.com/license), streamed from Pexels' CDN and crossfaded in the browser.
 const V = 'https://videos.pexels.com/video-files/';
 const clips = [
+  { src: '38750356/16464950_1280_720_60fps.mp4', at: 2, label: 'Mountain gorillas, Rwanda' },
   { src: '39730323/16941596_1280_720_30fps.mp4', at: 2, label: 'Torres del Paine, Chile' },
-  { src: '37829461/16046101_1280_720_30fps.mp4', at: 1, label: 'Volcanic eruption, Iceland' },
+  { src: '13402251/13402251-hd_1280_720_25fps.mp4', at: 2, label: 'On the trail to Everest Base Camp' },
   { src: '29171868/12597608_1280_720_30fps.mp4', at: 1, label: 'Elephants at sunset' },
+  { src: '35646306/15106051_1280_720_30fps.mp4', at: 2, label: 'Mount Kilimanjaro, Tanzania' },
   { src: '36867544/15619023_1280_720_30fps.mp4', at: 1, label: 'An infinity pool above the forest' },
+  { src: '36657221/15540466_1280_720_24fps.mp4', at: 2, label: 'Into the rainforest' },
+  { src: '18680289/18680289-hd_1280_720_25fps.mp4', at: 3, label: 'A humpback breaching' },
+  { src: '39664522/16908283_1280_720_60fps.mp4', at: 2, label: 'Climbers on a summit ridge' },
   { src: '6299773/6299773-hd_1280_720_30fps.mp4', at: 1, label: 'By expedition boat, among the ice' },
-  { src: '35969886/15251196_1280_720_30fps.mp4', at: 2, label: 'The Amazon from the air' },
   { src: '39157033/16662850_1280_720_25fps.mp4', at: 1, label: 'Cheetah on the savanna' },
-  { src: '17983734/17983734-hd_1280_720_30fps.mp4', at: 6, label: 'Sunrise over the Brandberg, Namibia' },
-  { src: '31280471/13358079_1280_720_25fps.mp4', at: 1, label: 'The northern lights' },
-  { src: '4022224/4022224-hd_1280_720_50fps.mp4', at: 2, label: 'Overwater villas, the Maldives' },
+  { src: '9130066/9130066-hd_1280_720_30fps.mp4', at: 2, label: 'Trekking in the Himalayas' },
+  { src: '37829461/16046101_1280_720_30fps.mp4', at: 1, label: 'Volcanic eruption, Iceland' },
+  { src: '40535384/17319944_1280_720_30fps.mp4', at: 2, label: 'A riverside camp' },
+  { src: '29632693/12750545_1280_720_25fps.mp4', at: 2, label: 'Ama Dablam, Nepal' },
   { src: '14556448/14556448-hd_1280_720_30fps.mp4', at: 1, label: 'Zebras, Masai Mara' },
-  { src: '32987075/14058611_1280_720_60fps.mp4', at: 1, label: 'Glacier ice from above' },
+  { src: '17075145/17075145-hd_1280_720_30fps.mp4', at: 2, label: 'Walking the glacier' },
+  { src: '35969886/15251196_1280_720_30fps.mp4', at: 2, label: 'The Amazon from the air' },
+  { src: '34139432/14474685_1280_720_60fps.mp4', at: 2, label: 'A sea turtle in open water' },
+  { src: '32142743/13704698_1280_720_60fps.mp4', at: 2, label: 'A high-altitude climb' },
+  { src: '4022224/4022224-hd_1280_720_50fps.mp4', at: 2, label: 'Overwater villas, the Maldives' },
+  { src: '12939728/12939728-hd_1280_720_25fps.mp4', at: 2, label: 'A giraffe in the bush' },
+  { src: '32881652/14014161_1280_720_60fps.mp4', at: 2, label: 'Perito Moreno Glacier, Argentina' },
+  { src: '17983734/17983734-hd_1280_720_30fps.mp4', at: 6, label: 'Sunrise over the Brandberg, Namibia' },
+  { src: '6299731/6299731-hd_1280_720_30fps.mp4', at: 3, label: 'Penguins on the shore' },
+  { src: '31280471/13358079_1280_720_25fps.mp4', at: 1, label: 'The northern lights' },
+  { src: '35728732/15142595_1280_720_60fps.mp4', at: 3, label: 'A summit push at sunset' },
   { src: '4996250/4996250-hd_1280_720_30fps.mp4', at: 2, label: 'A campfire in the forest' },
-  { src: '11563618/11563618-hd_1280_720_30fps.mp4', at: 2, label: 'Desert dunes' },
   { src: '39576516/16868146_1280_720_30fps.mp4', at: 1, label: 'A lakeside terrace at dusk' },
 ].map(c => ({ ...c, src: V + c.src }));
 ---
@@ -48,38 +62,54 @@ const clips = [
     const [a, b] = Array.from(root.querySelectorAll<HTMLVideoElement>('.m-vid'));
     const label = root.querySelector<HTMLElement>('.m-label')!;
     const bars = Array.from(root.querySelectorAll<HTMLElement>('.m-bars i'));
-    const CUT = 2000; // ms per shot: 15 shots, about a 30-second loop
+    const CUT = 1800; // ms per shot
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let n = 0, front = a, back = b, timer: number | undefined, running = false;
+    let n = 0, front = a, back = b, timer: number | undefined, running = false, gen = 0;
 
-    // Load a clip into a video element and seek to its in-point. Resolves when ready (or after 2.5s, so a slow clip never stalls the cut).
-    const prime = (v: HTMLVideoElement, k: number) => new Promise<void>(res => {
+    // Load a clip and seek to its in-point. Resolves true only once a real frame is decoded at the in-point,
+    // false if it is not ready in time (that shot is then skipped, so nothing ever flashes half-loaded).
+    const prime = (v: HTMLVideoElement, k: number) => new Promise<boolean>(res => {
       const c = clips[k];
-      const ready = () => { try { v.currentTime = c.at; } catch {} res(); };
-      if (v.dataset.k === String(k) && v.readyState >= 2) return ready();
-      v.dataset.k = String(k); v.preload = 'auto'; v.src = c.src;
-      v.addEventListener('loadeddata', ready, { once: true });
-      setTimeout(res, 2500);
+      let done = false;
+      const finish = (ok: boolean) => { if (done) return; done = true; res(ok); };
+      const seek = () => {
+        if (Math.abs(v.currentTime - c.at) < 0.05 && !v.seeking) return finish(true);
+        v.addEventListener('seeked', () => finish(true), { once: true });
+        try { v.currentTime = c.at; } catch { finish(false); }
+      };
+      if (v.dataset.k !== String(k)) { v.dataset.k = String(k); v.preload = 'auto'; v.src = c.src; }
+      if (v.readyState >= 2) seek(); else v.addEventListener('loadeddata', seek, { once: true });
+      setTimeout(() => finish(false), 4000);
     });
-    async function cutTo(k: number) {
-      await prime(back, k);
-      back.play().catch(() => {});
-      back.classList.add('is-on'); front.classList.remove('is-on');
-      const old = front; setTimeout(() => old.pause(), 650);
-      [front, back] = [back, front];
-      label.textContent = clips[k].label;
-      bars.forEach((el, x) => el.classList.toggle('on', x === k));
-      prime(back, (k + 1) % clips.length); // warm the next shot
-    }
-    async function loop() {
-      if (!running) return;
-      await cutTo(n);
+
+    async function loop(g: number) {
+      if (!running || g !== gen) return;
+      let ok = await prime(back, n);
+      // If this shot is slow, try the next one instead of showing a blank or a stale frame.
+      for (let tries = 0; !ok && tries < 3 && g === gen; tries++) { n = (n + 1) % clips.length; ok = await prime(back, n); }
+      if (!running || g !== gen) return;
+      if (ok) {
+        back.play().catch(() => {});
+        back.classList.add('is-on'); front.classList.remove('is-on');
+        
+        [front, back] = [back, front];
+        label.textContent = clips[n].label;
+        bars.forEach((el, x) => el.classList.toggle('on', x === n));
+      }
       n = (n + 1) % clips.length;
-      timer = window.setTimeout(loop, CUT);
+      const shown = performance.now();
+      // Let the outgoing shot finish fading before loading the next clip into it, so it never flashes.
+      new Promise(r => setTimeout(r, 450)).then(() => g === gen ? prime(back, n) : false).then(() => {
+        // Each shot holds for the full cut, measured from when it actually appeared.
+        const wait = Math.max(0, CUT - (performance.now() - shown));
+        if (g === gen) timer = window.setTimeout(() => loop(g), wait);
+      });
     }
-    function start() { if (running || reduce) return; running = true; loop(); }
-    function stop() { running = false; clearTimeout(timer); a.pause(); b.pause(); }
+    function start() { if (running || reduce) return; running = true; gen++; loop(gen); }
+    function stop() { running = false; gen++; clearTimeout(timer); a.pause(); b.pause(); }
     new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? start() : stop()), { threshold: 0.2 }).observe(root);
-    document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); });
+    let visible = false;
+    new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; }), { threshold: 0.2 }).observe(root);
+    document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else if (visible) start(); });
   }
 </script>
