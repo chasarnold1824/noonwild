@@ -158,10 +158,16 @@ const steps = [
       cards.forEach((c, i) => {
         const v = c.querySelector('video'); if (!v || reduce) return;
         let o = i - active; if (o > n / 2) o -= n; if (o < -n / 2) o += n;
-        if (Math.abs(o) <= 2 && heroOn && !document.hidden) {
-          if (!v.src) { if (v.dataset.alt && !v.canPlayType('video/webm; codecs="vp9"')) v.dataset.src = v.dataset.alt; v.src = v.dataset.src!; const at = Number(v.dataset.at || 0); if (at) v.addEventListener('loadedmetadata', () => { v.currentTime = at; }, { once: true }); v.addEventListener('playing', () => v.classList.add('on'), { once: true }); }
-          v.play().catch(() => {});
-        } else v.pause();
+        // Only the card in focus plays; its neighbours load quietly so they are ready when they rotate in.
+        if (Math.abs(o) <= 1 && !v.src) {
+          if (v.dataset.alt && !v.canPlayType('video/webm; codecs="vp9"')) v.dataset.src = v.dataset.alt;
+          v.preload = 'auto'; v.src = v.dataset.src!;
+          const at = Number(v.dataset.at || 0);
+          if (at) v.addEventListener('loadedmetadata', () => { v.currentTime = at; }, { once: true });
+          v.addEventListener('playing', () => v.classList.add('on'), { once: true });
+        }
+        if (o === 0 && heroOn && !document.hidden) v.play().catch(() => {});
+        else v.pause();
       });
       // Blurred backdrop plays the active card's clip, like Noon.
       const av = cards[active].querySelector('video');
