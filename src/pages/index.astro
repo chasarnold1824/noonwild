@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import RowCard from '../components/RowCard.astro';
 import { allStories, unsplash, fmtDate, readingTime } from '../lib';
+import { cdn } from '../img.mjs';
 
 const stories = await allStories();
 const featured = stories.find(s => s.data.featured && !s.data.draft) ?? stories[0];
@@ -34,13 +35,13 @@ const steps = [
   <!-- HERO: Noon's blurred-backdrop carousel -->
   <section class="hero" data-theme="dark" id="destinations">
     <div class="hero-bg" aria-hidden="true">
-      {destinations.map((d, i) => <img src={d.img} alt="" class:list={{ on: i === 0 }} loading={i < 2 ? 'eager' : 'lazy'}>)}
+      {destinations.map((d, i) => <img src={cdn(d.img, 1200)} alt="" class:list={{ on: i === 0 }} loading={i < 2 ? 'eager' : 'lazy'}>)}
     </div>
     <div class="hero-body">
       <p class="carousel-label enter" style="--d:.2s">Featured destinations</p>
       <div class="carousel enter" style="--d:.28s" aria-label="Featured destinations">
         {destinations.map((d, i) => (
-          <a class="c-card" href={d.href} data-i={i}><img src={d.img} alt={d.name}><span>{d.name}</span></a>
+          <a class="c-card" href={d.href} data-i={i}><img src={cdn(d.img, 500)} alt={d.name}><span>{d.name}</span></a>
         ))}
       </div>
       <h1 class="t-h1 enter" style="--d:.45s">Go where the explorers went.</h1>
@@ -97,7 +98,7 @@ const steps = [
     <div class="stories-grid">
       {featured && (
         <a class="feat-card reveal" href={`/stories/${featured.id}/`}>
-          <img src={featured.data.image} alt={featured.data.imageAlt} loading="lazy" style={`object-position:${featured.data.imagePosition}`}>
+          <img src={cdn(featured.data.image, 1600)} alt={featured.data.imageAlt} loading="lazy" style={`object-position:${featured.data.imagePosition}`}>
           <div class="in">
             <span class="pill">{featured.data.category}</span>
             <h3 class="t-feature">{featured.data.title}</h3>
