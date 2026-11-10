@@ -164,10 +164,14 @@ const steps = [
           v.preload = 'auto'; v.src = v.dataset.src!;
           const at = Number(v.dataset.at || 0);
           if (at) v.addEventListener('loadedmetadata', () => { v.currentTime = at; }, { once: true });
-          v.addEventListener('playing', () => v.classList.add('on'), { once: true });
+          v.addEventListener('playing', () => v.classList.add('on'));
         }
         if (o === 0 && heroOn && !document.hidden) v.play().catch(() => {});
-        else v.pause();
+        else if (o !== 0 && v.classList.contains('on')) {
+          // Leaving focus: fade back to the card's photo and rewind, so it never sits on a frozen frame.
+          v.pause(); v.classList.remove('on');
+          setTimeout(() => { if (v.paused) { try { v.currentTime = Number(v.dataset.at || 0); } catch {} } }, 700);
+        } else v.pause();
       });
       // Blurred backdrop plays the active card's clip, like Noon.
       const av = cards[active].querySelector('video');
