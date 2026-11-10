@@ -72,7 +72,13 @@ const clips = [
         try { v.currentTime = c.at; } catch { finish(false); }
       };
       if (v.dataset.k !== String(k)) { v.dataset.k = String(k); v.preload = 'auto'; v.src = c.src; }
-      if (v.readyState >= 2) seek(); else v.addEventListener('loadeddata', seek, { once: true });
+      if (v.readyState >= 2) seek();
+      else {
+        v.addEventListener('loadeddata', () => { v.pause(); seek(); }, { once: true });
+        // iPhones ignore preload and never fetch a hidden video until it is asked to play, so start it
+        // (muted, off-screen) to make it load; it is paused again as soon as the first frame arrives.
+        v.play().catch(() => {});
+      }
       setTimeout(() => finish(false), 4000);
     });
 
