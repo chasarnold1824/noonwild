@@ -86,6 +86,8 @@ The honest answer is that a good camp is more comfortable than most people expec
 
 ## What is a luxury safari camp, actually?
 
+<figure><img src="https://www.wildernessdestinations.com/media/il0dzvix/private-plunge-pool-at-mombo.jpg" alt="The private plunge pool of a tented suite at Wilderness Mombo in Botswana's Okavango Delta." loading="lazy"><figcaption>A suite's private plunge pool at Wilderness Mombo, Okavango Delta. Image courtesy of <a href="https://www.wildernessdestinations.com/africa/botswana/okavango-delta/mombo-camp" rel="noopener">Wilderness</a>.</figcaption></figure>
+
 It is a small hotel built mostly of canvas, wood and glass, set inside a reserve or a private conservancy with no fence around it. The best camps have between eight and twelve tents, which is why the service feels personal and why they sell out early.
 
 Do not picture camping. A tent at this level is a suite: a proper bed, a sitting area, an en-suite bathroom with a flushing toilet and hot water, usually an outdoor shower, and often a deck and a private plunge pool. The walls are canvas, so you will hear the bush all night. That is the part people worry about and then talk about for years.
@@ -93,6 +95,8 @@ Do not picture camping. A tent at this level is a suite: a proper bed, a sitting
 There is a second distinction worth knowing. **Permanent camps** stay in one place all year and are built on platforms with solid floors, real plumbing and electricity. **Seasonal or mobile camps** move with the wildlife and are simpler by design. For a first safari, book a permanent camp. Every camp in this guide is one.
 
 ## What does a day on safari look like?
+
+<figure><img src="https://www.wildernessdestinations.com/media/wwlhxg0u/ttd-mombo-camp-game-drive.jpg" alt="An open safari vehicle on a game drive from Wilderness Mombo in Botswana's Okavango Delta." loading="lazy"><figcaption>A game drive from Wilderness Mombo, Botswana. Image courtesy of <a href="https://www.wildernessdestinations.com/africa/botswana/okavango-delta/mombo-camp" rel="noopener">Wilderness</a>.</figcaption></figure>
 
 The day runs on the animals, and the animals are most active at the edges of it. A typical rhythm, with small variations by camp:
 
@@ -106,6 +110,8 @@ The day runs on the animals, and the animals are most active at the edges of it.
 Two rules of thumb. First, do not skip the early drive; the first hours of light are when you see the most. Second, build in rest. Three nights is the minimum I would book at any one camp, and four is better if it is the only camp on the trip.
 
 ## Is it safe to sleep in a tent?
+
+<figure><img src="https://images.ctfassets.net/wds1hqrprqxb/3iZYL77l69GiREMWrndcuc/46fa10f72dcc75ee336d3e79e0f84d08/Sabora_Evening_Lanterns_hanging_from_tree_Osse_Sinare.jpg" alt="Lanterns hanging from a tree at dusk at Singita Sabora Tented Camp in Tanzania's Grumeti reserve." loading="lazy"><figcaption>Evening lanterns at Singita Sabora, Grumeti. Photo: Osse Sinare / <a href="https://singita.com/lodge/singita-sabora-tented-camp/" rel="noopener">Singita</a>.</figcaption></figure>
 
 Yes, in a well-run camp, and the rules are simple. Most of the best camps are unfenced, so animals walk through. They tend to give the tents a wide berth, and staff watch the camp around the clock.
 
@@ -125,11 +131,15 @@ These are the three I would look at first. Each is a different answer to the sam
 
 ### The classic: Cottar's 1920s Camp, Kenya
 
-<figure><img src="https://cdn.prod.website-files.com/68c101c4d478f8b11488e56e/68ece5172d653cf18729b703_Cottar%E2%80%99s-1920s-Camp-Explorers-Tent--203.jpg" alt="The Explorer's Tent at Cottar's 1920s Camp in Kenya's Maasai Mara, filled with books, antique instruments and safari curiosities." loading="lazy"><figcaption>The Explorer's Tent at Cottar's 1920s Camp, Maasai Mara. Image courtesy of <a href="https://www.cottars.com/1920s-camp" rel="noopener">Cottar's Safaris</a>.</figcaption></figure>
+<figure><img src="https://cdn.prod.website-files.com/68c101c4d478f8b11488e56e/6900e2ce5faa1ddb592a3242_Pool.jpg" alt="The stone-lined pool at Cottar's 1920s Camp, with lounge chairs under acacia trees, in Kenya's Maasai Mara." loading="lazy"><figcaption>The pool at Cottar's 1920s Camp, Maasai Mara. Image courtesy of <a href="https://www.cottars.com/1920s-camp" rel="noopener">Cottar's Safaris</a>.</figcaption></figure>
+
+<figure><img src="https://cdn.prod.website-files.com/68c101c4d478f8b11488e56e/6919f285ed655b25559786b1_Cottar%27s-Camp-Pool-Dinner-066%20(1).jpg" alt="Dinner set by the pool at Cottar's 1920s Camp in Kenya's Maasai Mara." loading="lazy"><figcaption>Dinner by the pool at Cottar's 1920s Camp. Image courtesy of <a href="https://www.cottars.com/1920s-camp" rel="noopener">Cottar's Safaris</a>.</figcaption></figure>
 
 **Cottar's 1920s Camp** is the closest thing in East Africa to the safari the Johnsons knew. The Cottar family has run safaris in Kenya since 1919, and this camp recreates that era on purpose, in the community-owned Olderkesi Conservancy on the edge of the Maasai Mara, with access to the national reserve next door. There are eleven white canvas tents: five doubles, four family tents with two bedrooms and a lounge with a wood-burning stove, and two honeymoon tents. The mess tent has gramophones, lamps from Kenya's old railway and antique sextants and telescopes; there is an Explorer's Tent for evening talks and private dinners, and a stone-lined infinity pool over the plains. The signature is the bath: a canvas tub drawn on your veranda with the plains in front of you. Ask for **Kiboko**, the honeymoon tent with a wood-fired hot tub, or **Molo**, with an outdoor bathtub on its deck. Families get their own guide, private vehicle and babysitting in the family tents, and children of all ages are welcome. Rates start at around $1,000 per person per night. Book it for a first safari, for a family, or for anyone who wants the romance of the 1920s without the discomfort.
 
 ### The wildlife choice: Wilderness Mombo, Botswana
+
+<figure><img src="https://www.wildernessdestinations.com/media/sklamfut/mombo-gallery-wildlife-elephant-infront-of-camp.jpg" alt="An elephant in front of Wilderness Mombo on Chief's Island in Botswana's Okavango Delta." loading="lazy"><figcaption>An elephant in front of camp at Wilderness Mombo. Image courtesy of <a href="https://www.wildernessdestinations.com/africa/botswana/okavango-delta/mombo-camp" rel="noopener">Wilderness</a>.</figcaption></figure>
 
 **Wilderness Mombo** is the camp people mean when they say the Okavango Delta has the best game viewing in Africa. It sits on Chief's Island in the Moremi Game Reserve, where the Delta's channels hold animals close, and its old name, the Place of Plenty, is not an exaggeration: leopards are seen in and around camp almost daily, and two packs of wild dogs live nearby. Mombo has nine tented suites on raised walkways high enough for elephants to pass beneath, each with a private plunge pool, a copper bathtub, an outdoor shower and a shaded sala over the floodplain. The camp was rebuilt in 2018 with interiors by the Cape Town studio Artichoke, a modern take on the classic safari look with leather sofas and carved wooden chandeliers. Rates run from about $3,000 per person per night in the green season to more than $5,000 in the dry months from June to October, fully inclusive of meals, activities, park fees, laundry and local drinks. Children under thirteen can join game drives only with a private vehicle. Book Mombo for a second safari, or a first one where the wildlife matters more than anything else and the budget allows.
 
@@ -140,6 +150,8 @@ These are the three I would look at first. Each is a different answer to the sam
 **Singita Sabora Tented Camp** is the modern answer. It stands on the open plains of Singita Grumeti, a private reserve of about 350,000 acres on the edge of the Serengeti, on the path of the Great Migration. Singita rebuilt the camp in 2020 with its design partners Cécile & Boyd and GAPP Architects: nine tented suites set lower to the ground, in taupe and tan, with hand-stitched leather and campaign furniture. Each suite has a private meditation deck, a shaded outdoor sala with a daybed and its own fitness area, and the main camp has a pool and a Guest Deli where you pick your own picnic. Because Grumeti is private, guides can drive off-road, which the national park does not allow, and horseback riding and balloon flights can be arranged. Flights from Kigali also make it easy to pair Sabora with gorilla trekking in Rwanda. Book it for travelers who want the Serengeti at its biggest, in a tent that feels like a contemporary hotel. Let our advisors quote current rates; they move with the migration.
 
 ## What happened to Paradise?
+
+<figure><img src="https://images.ctfassets.net/wds1hqrprqxb/6oGv0CpABgfIorCQl37njk/459e007a3f8212926250741e478cd9aa/SGR_LODGE_Sabora_Tented_Camp_Wildlife_Zebra_Herd_Ross_Couper_2.jpg" alt="A herd of zebra on the plains near Singita Sabora Tented Camp in Tanzania's Grumeti reserve, on the edge of the Serengeti." loading="lazy"><figcaption>Zebra on the plains near Singita Sabora. Photo: Ross Couper / <a href="https://singita.com/lodge/singita-sabora-tented-camp/" rel="noopener">Singita</a>.</figcaption></figure>
 
 You can still go to Lake Paradise. It lies inside Marsabit National Park, one of the most remote parks in Kenya, a long drive north across desert from Nairobi, and according to the East African Wild Life Society's Swara magazine, the only places to stay inside the park are simple bandas run by the Kenya Wildlife Service. A small museum about the Johnsons stands at the gate. It is an expedition, not a luxury trip, and the elephants are fewer than they were. Back in Chanute, Kansas, where Osa grew up, the Martin and Osa Johnson Safari Museum has kept their films, photographs and belongings since 1961.
 
