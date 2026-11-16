@@ -3,7 +3,7 @@ title: "How to See Murchison Falls, Where Hemingway Crashed Twice in Two Days: W
 dek: "In January 1954 Ernest Hemingway's sightseeing flight over Murchison Falls ended in the scrub beside the Nile, and the plane sent to rescue him burned on the runway. The world printed his obituaries. The falls are still Uganda's great sight, and here is how I would see them."
 category: Explorer stories
 region: Uganda
-date: 2026-11-11
+date: 2026-11-16
 image: https://images.unsplash.com/photo-1663498798455-8ce6d44d4505?auto=format&fit=crop&w=2400&q=80
 imageAlt: "The Nile forcing its way through the narrow rock gorge at Murchison Falls in northern Uganda, the view Hemingway's plane circled in 1954."
 imagePosition: "50% 50%"
