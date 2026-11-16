@@ -140,7 +140,7 @@ Close to her side of the park, if the eastern sector is the point of the trip. *
 
 If you would rather wake up inside the park, **explora Patagonia** stands on the shore of Lake Pehoé at the Salto Chico waterfall, facing the Paine massif. It has 49 rooms, six of them suites, and the Explorer Suites are the ones to ask for, for the view of the massif. Its spa, 100 metres from the main building, has a heated covered pool, a sauna and four open-air hot tubs above the Paine River. Rates are all-inclusive, with guided excursions in small groups. It is the better choice for walkers who want to be inside the park rather than beside it, and it publishes its own account of Dixie's ride.
 
-<figure><img src="https://assets.explora.com/app/uploads/2022/02/torres-del-paine-explora-lodge.jpg" alt="The explora lodge on the shore of Lake Pehoé in Torres del Paine National Park, with the Paine massif behind." loading="lazy"><figcaption>explora Patagonia on Lake Pehoé. Image courtesy of <a href="https://explora.com/torres-del-paine-hotel" rel="noopener">explora</a>.</figcaption></figure>
+<figure><img src="https://assets.explora.com/app/uploads/2021/08/Doca-Torres-del-Paine-Patagonia-1-scaled.jpg" alt="The lakeside dock at explora Patagonia on Lake Pehoé in Torres del Paine National Park." loading="lazy"><figcaption>The dock at explora Patagonia, Lake Pehoé. Image courtesy of <a href="https://explora.com/torres-del-paine-hotel" rel="noopener">explora</a>.</figcaption></figure>
 
 Let our advisors quote current rates and hold the villa or the suite you want.
 
