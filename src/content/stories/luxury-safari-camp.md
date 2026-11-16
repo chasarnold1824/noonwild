@@ -3,7 +3,7 @@ title: "What to Expect at a Luxury Safari Camp: The Tent, the Day, the Rules, an
 dek: "In 1924 Martin and Osa Johnson built a home by a crater lake in northern Kenya and lived there for years, filming wildlife from a camp with a garden, a darkroom and a pink bathroom. Today's best safari camps descend from that idea. Here is what a night under canvas is really like, and where I would put you first."
 category: Expert advice
 region: Kenya, Botswana and Tanzania
-date: 2026-11-13
+date: 2026-11-16
 image: https://www.wildernessdestinations.com/media/fyylufgu/walk-into-the-ultimate-luxury-camp-wilderness-mombo.webp
 imageAlt: "The lantern-lit walkway into Wilderness Mombo, a luxury tented safari camp on Chief's Island in Botswana's Okavango Delta, at dusk."
 imagePosition: "50% 55%"
