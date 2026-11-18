@@ -4,11 +4,11 @@ dek: "In December 1930 a quiet Englishman from a Somerset village walked out of 
 category: Explorer stories
 region: Oman
 date: 2026-11-18
-image: https://upload.wikimedia.org/wikipedia/commons/b/b3/Rub_al_khalid_sunset_nov_07.JPG
-imageAlt: "Sunset over the dunes of the Rub' al Khali, the Empty Quarter of Arabia, the sand sea Bertram Thomas crossed from Oman to Qatar in 1930 and 1931."
+image: https://images.unsplash.com/photo-1567948060823-d32f40b60186?auto=format&fit=crop&w=2400&q=80
+imageAlt: "Dunes of the Rub' al Khali in Dhofar, Oman, the edge of the Empty Quarter that Bertram Thomas walked into from Salalah in 1930."
 imagePosition: "50% 60%"
-imageCredit: "Image courtesy of Javierblas via Wikimedia Commons (CC BY-SA 3.0)."
-imageSourceUrl: https://c.enwp.org/wiki/File:Rub_al_khalid_sunset_nov_07.JPG
+imageCredit: "Photo: Tanja Cotoaga / Unsplash."
+imageSourceUrl: https://unsplash.com/photos/brown-desert-during-daytime-x0D-ZLg_eFg
 featured: false
 draft: false
 keyTakeaways:
