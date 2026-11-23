@@ -15,7 +15,7 @@ keyTakeaways:
   - "For the ruins at dawn and dusk, Belmond Sanctuary Lodge is the only hotel at the gate, 31 rooms a three-minute walk from the entrance. For a family or a longer stay, Inkaterra Machu Picchu Pueblo, with 12 acres of cloud forest in the town below."
   - "Sleep low before you sleep high. Cusco sits at about 3,400 metres and Machu Picchu at 2,430, so two or three nights in the Sacred Valley first, at Inkaterra Hacienda Urubamba (Two MICHELIN Keys) or explora, is the gentler order."
   - "Foreign adults pay S/152 for a standard route and S/200 for Huayna Picchu or Machu Picchu Mountain, plus an S/11 conservation fee since May 2026. Tickets carry your passport number and cannot be resold."
-  - "Go from May to October, the dry season. April and early November are the best compromise. The Inca Trail closes every February."
+  - "Go from May to October, the dry season. April, May and October, either side of the June to August peak, are the months I would pick. The Inca Trail closes every February."
 faq:
   - q: Who really discovered Machu Picchu?
     a: "The farmers who lived on its terraces always knew it was there. Of the outsiders, Agustín Lizárraga, a tenant farmer from the Cusco region, reached it in July 1902 and wrote his name and the date in charcoal on the Temple of the Three Windows. Hiram Bingham, guided by the farmer Melchor Arteaga and a local boy, arrived on 24 July 1911, saw the inscription and recorded Lizárraga as the discoverer in his notebook. Earlier visitors, including the German Augusto Berns in the 1860s, have also been proposed."
