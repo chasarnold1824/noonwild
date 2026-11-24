@@ -17,6 +17,10 @@ export const destinations = [
     blurb: 'Red dunes, desert-adapted wildlife, and some of the emptiest, most beautiful country in Africa.' },
   { slug: 'antarctica', name: 'Antarctica', regions: ['Antarctica'], img: unsplash('photo-1551415923-a2297c7fda79', 1600), pos: '40% 55%',
     blurb: 'Penguin colonies, blue ice, and the last continent, reached by expedition ship.' },
+  { slug: 'canadian-rockies', name: 'The Canadian Rockies', regions: ['Canadian Rockies', 'The Canadian Rockies', 'Banff', 'Jasper'], img: '/img/bighorn.jpg', pos: '50% 40%',
+    blurb: 'Glacier lakes, the Icefields Parkway, and the grand railway hotels of Banff and Jasper.' },
+  { slug: 'botswana', name: 'Botswana', regions: ['Botswana'], img: '/img/lion-dusk.jpg', pos: '50% 50%',
+    blurb: 'The Okavango Delta, the Kalahari salt pans, and some of the most exclusive safari camps in Africa.' },
   { slug: 'east-africa', name: 'East Africa', regions: ['East Africa', 'Kenya', 'Tanzania'], img: '/img/lions-greeting.jpg', pos: '62% 50%',
     blurb: 'Classic safari country, from the great migration to the finest tented camps.' },
   { slug: 'the-arctic', name: 'The Arctic', regions: ['Svalbard', 'The Arctic'], img: '/img/polar-bear.jpg', pos: '68% 50%',
@@ -26,5 +30,25 @@ export const destinations = [
   { slug: 'uganda', name: 'Uganda', regions: ['Uganda'], img: '/img/elephant.jpg', pos: '58% 40%',
     blurb: 'The Nile at Murchison Falls, the forests of Bwindi, and the week Hemingway read his own obituary.' },
 ];
-export type Destination = (typeof destinations)[number];
-export const destinationFor = (region: string) => destinations.find(d => d.regions.includes(region));
+export type Destination = { slug: string; name: string; regions: string[]; img: string; pos: string; blurb: string };
+
+// A story's region can name several places ("Kenya, Botswana and Tanzania"); split it into parts.
+export const regionParts = (region: string) =>
+  [region, ...region.split(/\s*(?:,|\band\b|&)\s*/)].map(r => r.trim()).filter(Boolean);
+export const storyInDestination = (region: string, d: Destination) =>
+  regionParts(region).some(r => d.regions.includes(r));
+export const slugify = (s: string) =>
+  s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/^the\s+/, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+// Every destination with a page: the list above, plus one generated automatically for any
+// published story whose region is not covered yet (so a new story never lands on a missing page).
+export function withAutoDestinations(stories: { data: { region: string; image: string; imagePosition?: string } }[]): Destination[] {
+  const out: Destination[] = destinations.map(d => ({ ...d }));
+  for (const s of stories) {
+    if (out.some(d => storyInDestination(s.data.region, d))) continue;
+    const name = s.data.region;
+    out.push({ slug: slugify(name), name, regions: [name], img: s.data.image, pos: s.data.imagePosition ?? '50% 50%',
+      blurb: `Noon Wild's stories from ${name}, and how to travel there now.` });
+  }
+  return out;
+}

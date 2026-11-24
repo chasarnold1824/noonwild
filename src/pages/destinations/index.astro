@@ -1,7 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { cdn } from '../../img.mjs';
-import { destinations } from '../../data/destinations';
+import { allStories } from '../../lib';
+import { withAutoDestinations } from '../../data/destinations';
+const destinations = withAutoDestinations(await allStories());
 ---
 <Base title="Destinations" description="Where Noon Wild travels: the wild places with the best stories, and the finest lodges at their edge.">
   <div class="container dest-page" data-theme="dark">
