@@ -24,6 +24,8 @@ const media: Record<string, { img?: string; pos?: string; vid?: string; alt?: st
   'the-arctic': { vid: '34492362/14614694_960_540_30fps.mp4' },
   'central-america': { vid: '17482885/17482885-sd_960_540_25fps.mp4', vpos: '55% 50%' },
   uganda: { vid: '31223127/13336200_960_540_60fps.mp4', vpos: '42% 50%' },
+  'canadian-rockies': { vid: '20600550/20600550-sd_960_540_30fps.mp4', vpos: '60% 50%' },   // Moraine Lake, Banff (Pexels)
+  botswana: { vid: '18197398/18197398-sd_960_540_30fps.mp4', vpos: '40% 50%' },            // elephant herd at the water, filmed from a boat (Pexels)
 };
 const destinations = withAutoDestinations(stories)
   .filter(d => stories.some(s => storyInDestination(s.data.region, d)))

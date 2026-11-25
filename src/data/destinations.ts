@@ -17,9 +17,9 @@ export const destinations = [
     blurb: 'Red dunes, desert-adapted wildlife, and some of the emptiest, most beautiful country in Africa.' },
   { slug: 'antarctica', name: 'Antarctica', regions: ['Antarctica'], img: unsplash('photo-1551415923-a2297c7fda79', 1600), pos: '40% 55%',
     blurb: 'Penguin colonies, blue ice, and the last continent, reached by expedition ship.' },
-  { slug: 'canadian-rockies', name: 'The Canadian Rockies', regions: ['Canadian Rockies', 'The Canadian Rockies', 'Banff', 'Jasper'], img: '/img/bighorn.jpg', pos: '50% 40%',
+  { slug: 'canadian-rockies', name: 'The Canadian Rockies', regions: ['Canadian Rockies', 'The Canadian Rockies', 'Banff', 'Jasper'], img: 'https://images.pexels.com/videos/20600550/4k-alberta-banff-blue-20600550.jpeg?auto=compress&cs=tinysrgb&w=1600', pos: '60% 45%',
     blurb: 'Glacier lakes, the Icefields Parkway, and the grand railway hotels of Banff and Jasper.' },
-  { slug: 'botswana', name: 'Botswana', regions: ['Botswana'], img: '/img/lion-dusk.jpg', pos: '50% 50%',
+  { slug: 'botswana', name: 'Botswana', regions: ['Botswana'], img: unsplash('photo-1759252973843-957dc1b5e0e5', 1600), pos: '50% 55%', // mokoros in the Okavango Delta, Ed Wingate / Unsplash
     blurb: 'The Okavango Delta, the Kalahari salt pans, and some of the most exclusive safari camps in Africa.' },
   { slug: 'east-africa', name: 'East Africa', regions: ['East Africa', 'Kenya', 'Tanzania'], img: '/img/lions-greeting.jpg', pos: '62% 50%',
     blurb: 'Classic safari country, from the great migration to the finest tented camps.' },
