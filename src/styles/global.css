@@ -377,3 +377,9 @@ a.dest-guide:hover > img { transform: scale(1.04); }
 .m-bar { display: none; }
 
 .montage::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 140px; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgb(27,42,33), rgba(27,42,33,0)); }
+
+/* ---------- Image parallax (Noon-style: images drift slightly inside their frames as you scroll) ---------- */
+.plx { scale: 1.12; translate: 0 var(--py, 0px); will-change: translate; }
+.plx-frame { display: block; overflow: hidden; border-radius: 8px; }
+.plx-frame > img { display: block; }
+@media (prefers-reduced-motion: reduce) { .plx { scale: none; translate: none; } }
