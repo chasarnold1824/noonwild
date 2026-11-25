@@ -1,5 +1,5 @@
 ---
-title: "How to See Jaguars in the Pantanal: Where Roosevelt Hunted Them, and the Lodges That Now Protect Them."
+title: "Jaguars in the Pantanal, After Roosevelt."
 dek: In December 1913 Theodore Roosevelt rode into Brazil's great marsh to hunt jaguars. A century later the same wetland is the most reliable place on earth to watch one, if you know which side of it to choose and where to stay.
 category: Destination guide
 region: The Pantanal

@@ -1,5 +1,5 @@
 ---
-title: "Torres del Paine's First Tourist: How Lady Florence Dixie Found 'Cleopatra's Needles' in 1879, and How to See Them Now."
+title: "Torres del Paine's First Tourist."
 dek: "In 1879 a Scottish aristocrat rode across Patagonia because it was the most outlandish place she could think of, named the Torres del Paine after an Egyptian obelisk, and then wrote to Charles Darwin to tell him he had got something wrong. Here is her story, and how I would follow it today."
 category: Explorer stories
 region: Patagonia

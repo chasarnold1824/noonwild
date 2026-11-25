@@ -1,5 +1,5 @@
 ---
-title: "How to See Murchison Falls, Where Hemingway Crashed Twice in Two Days: When to Go, Which Boat, and Where to Stay."
+title: "Murchison Falls, Where Hemingway Crashed Twice."
 dek: "In January 1954 Ernest Hemingway's sightseeing flight over Murchison Falls ended in the scrub beside the Nile, and the plane sent to rescue him burned on the runway. The world printed his obituaries. The falls are still Uganda's great sight, and here is how I would see them."
 category: Explorer stories
 region: Uganda
