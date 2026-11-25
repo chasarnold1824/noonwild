@@ -1,5 +1,5 @@
 ---
-title: "The Man Who Paid 36 Cents to Cross the Panama Canal: How Richard Halliburton Swam It in 1928, and How to Transit It Now."
+title: "Swimming the Panama Canal for 36 Cents."
 dek: "In August 1928 a young travel writer from Tennessee was weighed, registered as a ship and charged 36 cents to swim the Panama Canal, still the lowest toll in its history. Here is what he did, and how I would see the canal today, from the water, the locks and the right hotel."
 category: Explorer stories
 region: Panama
