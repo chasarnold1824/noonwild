@@ -373,9 +373,7 @@ a.dest-guide:hover > img { transform: scale(1.04); }
 @media (max-width: 767px) { .m-bars { display: none; } .montage-copy { padding-block: 110px 120px; } .m-sub { font-size: 16px; line-height: 25px; } }
 @media (prefers-reduced-motion: reduce) { .m-vid { display: none; } .montage-stage { background: url(/img/lion-dusk.jpg) center/cover; } }
 
-/* Cinematic letterbox */
-.m-bar { position: absolute; left: 0; right: 0; height: 6.5vh; background: #050806; z-index: 1; }
-.m-bar-top { top: 0; } .m-bar-bot { bottom: 0; }
-@media (max-width: 767px) { .m-bar { display: none; } }
-.montage-foot { bottom: calc(6.5vh + 18px); }
-@media (max-width: 767px) { .montage-foot { bottom: 20px; } }
+/* Letterbox bars removed: they read as black gaps between sections. */
+.m-bar { display: none; }
+
+.montage::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 140px; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgb(27,42,33), rgba(27,42,33,0)); }
