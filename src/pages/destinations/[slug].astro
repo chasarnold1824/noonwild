@@ -71,7 +71,7 @@ items.forEach((item, i) => {
     <section class="dest-more">
       <h2 class="t-display words">More destinations.</h2>
       <div class="dest-grid">
-        {dests.filter((d: any) => d.slug !== dest.slug).sort((a: any, b: any) => Number(all.some(s => storyInDestination(s.data.region, b))) - Number(all.some(s => storyInDestination(s.data.region, a)))).slice(0, 5).map((d: any) => (
+        {dests.filter((d: any) => d.slug !== dest.slug && all.some(s => storyInDestination(s.data.region, d))).slice(0, 5).map((d: any) => (
           <a class="dest-card reveal" href={`/destinations/${d.slug}/`}>
             <img src={cdn(d.img, 800)} alt={d.name} loading="lazy" style={`object-position:${d.pos}`}>
             <span class="dest-card-scrim"></span>
