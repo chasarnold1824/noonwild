@@ -1,9 +1,8 @@
 import { getCollection } from 'astro:content';
-// Published first (newest first), then drafts as "coming soon".
+// Published stories only, newest first. Drafts (draft: true) never appear anywhere on the site.
 export async function allStories() {
-  const all = await getCollection('stories');
-  const byDate = (a: any, b: any) => b.data.date.valueOf() - a.data.date.valueOf();
-  return [...all.filter(s => !s.data.draft).sort(byDate), ...all.filter(s => s.data.draft).sort(byDate)];
+  const all = await getCollection('stories', s => !s.data.draft);
+  return all.sort((a: any, b: any) => b.data.date.valueOf() - a.data.date.valueOf());
 }
 export function readingTime(body = '') {
   return Math.max(1, Math.round(body.split(/\s+/).length / 230));

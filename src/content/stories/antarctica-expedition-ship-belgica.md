@@ -1,5 +1,5 @@
 ---
-title: "How to Choose an Antarctica Expedition Ship: Following the Belgica Through the Gerlache Strait, and the Five Ships I Would Book."
+title: "Antarctica in the Wake of the Belgica."
 dek: "In 1898 a small Belgian ship named half the places on today's Antarctic itineraries, then spent a year frozen in the pack, kept alive on penguin meat. Here is that story, and how to choose the ship that takes you through the same strait now."
 category: Destination guide
 region: Antarctica

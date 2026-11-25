@@ -4,36 +4,44 @@ import RowCard from '../components/RowCard.astro';
 import Montage from '../components/Montage.astro';
 import { allStories, unsplash, fmtDate, readingTime } from '../lib';
 import { cdn } from '../img.mjs';
+import { withAutoDestinations, storyInDestination } from '../data/destinations';
 
 const stories = await allStories();
 const featured = stories.find(s => s.data.featured && !s.data.draft) ?? stories[0];
 const list = stories.filter(s => s !== featured).slice(0, 4);
 
-const destinations = [
-  { name: 'Rwanda', img: unsplash('photo-1722291731448-3afe029611a6', 1200), href: '/destinations/rwanda/', vid: '38750354/16464978_960_540_60fps.mp4', vpos: '53% 50%' },
-  { name: 'The Pantanal', img: unsplash('photo-1595600896602-6b9052fe0c5b', 1600), pos: '52% 45%', href: '/destinations/pantanal/', vid: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/3/3b/Pantanal_Jaguar_%28Panthera_onca%29.webm/Pantanal_Jaguar_%28Panthera_onca%29.webm.480p.vp9.webm', alt: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/3/3b/Pantanal_Jaguar_%28Panthera_onca%29.webm/Pantanal_Jaguar_%28Panthera_onca%29.webm.360p.mpeg4.mov', vpos: '64% 40%', at: 10 },
-  { name: 'Yellowstone', img: unsplash('photo-1778704828743-31586fcea70d', 1200), href: '/destinations/yellowstone/', vid: '3735933/3735933-sd_960_540_24fps.mp4', vpos: '66% 50%' },
-  { name: 'Patagonia', img: unsplash('photo-1715356758153-6d58ae44e8fe', 1200), href: '/destinations/patagonia/', vid: '37271731/15789871_960_540_30fps.mp4' },
-  { name: 'Galápagos', img: unsplash('photo-1706957614198-8d2e5f0ed6ea', 1200), href: '/destinations/galapagos/', vid: '39773158/16960711_540_960_30fps.mp4', vpos: '50% 72%' },
-  { name: 'Namibia', img: unsplash('photo-1506710507565-203b9f24669b', 1200), href: '/destinations/namibia/', vid: '26730260/11994812_1024_540_30fps.mp4', vpos: '45% 50%' },
-  { name: 'Antarctica', img: unsplash('photo-1551415923-a2297c7fda79', 1600), pos: '40% 55%', href: '/destinations/antarctica/', vid: '6299729/6299729-hd_1076_1318_30fps.mp4', vpos: '50% 40%' },
-  { name: 'East Africa', img: '/img/lions-greeting.jpg', href: '/destinations/east-africa/', vid: '11528208/11528208-sd_540_960_30fps.mp4' },
-  { name: 'The Arctic', img: '/img/polar-bear.jpg', href: '/destinations/the-arctic/', vid: '34492362/14614694_960_540_30fps.mp4' },
-  { name: 'Central America', img: '/img/copan-stela.jpg', href: '/destinations/central-america/', vid: '17482885/17482885-sd_960_540_25fps.mp4', vpos: '55% 50%' },
-  { name: 'Uganda', img: '/img/elephant.jpg', href: '/destinations/uganda/', vid: '31223127/13336200_960_540_60fps.mp4', vpos: '42% 50%' },
-];
+// Hero carousel: every destination that has at least one published story (so no card leads to an empty page).
+// Videos and crops per destination; a destination without an entry here shows its still image.
+const media: Record<string, { img?: string; pos?: string; vid?: string; alt?: string; vpos?: string; at?: number }> = {
+  rwanda: { img: unsplash('photo-1722291731448-3afe029611a6', 1200), vid: '38750354/16464978_960_540_60fps.mp4', vpos: '53% 50%' },
+  pantanal: { pos: '52% 45%', vid: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/3/3b/Pantanal_Jaguar_%28Panthera_onca%29.webm/Pantanal_Jaguar_%28Panthera_onca%29.webm.480p.vp9.webm', alt: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/3/3b/Pantanal_Jaguar_%28Panthera_onca%29.webm/Pantanal_Jaguar_%28Panthera_onca%29.webm.360p.mpeg4.mov', vpos: '64% 40%', at: 10 },
+  yellowstone: { img: unsplash('photo-1778704828743-31586fcea70d', 1200), vid: '3735933/3735933-sd_960_540_24fps.mp4', vpos: '66% 50%' },
+  patagonia: { img: unsplash('photo-1715356758153-6d58ae44e8fe', 1200), vid: '37271731/15789871_960_540_30fps.mp4' },
+  galapagos: { img: unsplash('photo-1706957614198-8d2e5f0ed6ea', 1200), vid: '39773158/16960711_540_960_30fps.mp4', vpos: '50% 72%' },
+  namibia: { img: unsplash('photo-1506710507565-203b9f24669b', 1200), vid: '26730260/11994812_1024_540_30fps.mp4', vpos: '45% 50%' },
+  antarctica: { pos: '40% 55%', vid: '6299729/6299729-hd_1076_1318_30fps.mp4', vpos: '50% 40%' },
+  'east-africa': { vid: '11528208/11528208-sd_540_960_30fps.mp4' },
+  'the-arctic': { vid: '34492362/14614694_960_540_30fps.mp4' },
+  'central-america': { vid: '17482885/17482885-sd_960_540_25fps.mp4', vpos: '55% 50%' },
+  uganda: { vid: '31223127/13336200_960_540_60fps.mp4', vpos: '42% 50%' },
+  'canadian-rockies': { vid: '20600550/20600550-sd_960_540_30fps.mp4', vpos: '60% 50%' },   // Moraine Lake, Banff (Pexels)
+  botswana: { vid: '18197398/18197398-sd_960_540_30fps.mp4', vpos: '40% 50%' },            // elephant herd at the water, filmed from a boat (Pexels)
+};
+const destinations = withAutoDestinations(stories)
+  .filter(d => stories.some(s => storyInDestination(s.data.region, d)))
+  .map(d => ({ name: d.name, img: media[d.slug]?.img ?? d.img, pos: media[d.slug]?.pos ?? d.pos, href: `/destinations/${d.slug}/`, ...media[d.slug] }));
 
 const why = [
-  { n: '01', t: 'Every trip begins with a true story', p: 'An explorer, a naturalist, a writer who went first. We start there, then build the journey that lets you stand inside it.', img: '/img/elephant.jpg', pos: '58% 40%' },
-  { n: '02', t: 'Five-star camps, lodges and ships', p: 'The finest properties at the edge of the wild, with preferred benefits through Noon Travel: upgrades, credits and quiet extras.', img: cdn('https://www.caiman.com.br/wp-content/uploads/2021/10/Um-cenario-dos-sonhos-na-imensidao-do-Pantanal.png', 2000), pos: '50% 60%' },
-  { n: '03', t: 'Travel that leaves the place better', p: 'Every journey comes with an impact report, so you see exactly where your trip’s conservation contribution went.', img: '/img/bighorn.jpg', pos: '50% 40%' },
+  { n: '01', t: 'Every trip starts with a true story', p: 'Someone went first. We build the journey that puts you in their footsteps.', img: '/img/elephant.jpg', pos: '58% 40%' },
+  { n: '02', t: 'Five-star camps, lodges and ships', p: 'The finest stays at the edge of the wild, with Noon Travel perks: upgrades, credits and quiet extras.', img: cdn('https://www.caiman.com.br/wp-content/uploads/2021/10/Um-cenario-dos-sonhos-na-imensidao-do-Pantanal.png', 2000), pos: '50% 60%' },
+  { n: '03', t: 'Travel that leaves it better', p: 'Every trip ends with an impact report showing where your conservation contribution went.', img: '/img/bighorn.jpg', pos: '50% 40%' },
 ];
 
 const steps = [
-  { n: '01', t: 'Choose your story.', p: 'Start with whatever pulls at you: a place you have read about for years, an explorer whose journal you could not put down, an animal you have always wanted to see in the wild. Browse the journal, or simply tell us the feeling you are after. Every Noon Wild trip begins with a true story, and yours will too.', art: 'compass' },
-  { n: '02', t: 'Meet your advisor.', p: 'A real conversation, not a form. Your advisor asks how you like to travel, who is coming, how active you want the days to be and what the trip is for, then comes back with honest options: the right season, the right camp or lodge, and what each one is actually like on the ground.', art: 'map' },
-  { n: '03', t: 'We design the expedition.', p: 'We build a private itinerary around your story and the finest properties at the edge of the wild, with preferred benefits through Noon Travel where they apply. Permits, bush flights, transfers and specialist guides are arranged and checked, so all that is left for you to decide is what to pack.', art: 'tent' },
-  { n: '04', t: 'Travel, then see your impact.', p: 'Your advisor stays on call from the first flight to the last, ready for changes, weather and the unexpected. When you are home, you receive an impact report showing where your trip\u2019s conservation contribution went, and the people and places it now supports.', art: 'peak' },
+  { n: '01', t: 'Choose your story.', p: 'A place, an explorer, an animal you have always wanted to see. Pick a story from the journal, or just tell us what pulls at you.', art: 'compass' },
+  { n: '02', t: 'Meet your advisor.', p: 'One real conversation about how you like to travel. We come back with honest options: the right season, the right camp.', art: 'map' },
+  { n: '03', t: 'We design the expedition.', p: 'A private itinerary built around your story. Permits, bush flights and guides are handled, so you only decide what to pack.', art: 'tent' },
+  { n: '04', t: 'Travel, then see your impact.', p: 'Your advisor is on call the whole way. Back home, an impact report shows what your trip supported.', art: 'peak' },
 ];
 ---
 <Base>
