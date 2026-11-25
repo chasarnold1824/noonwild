@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="225" height="217" viewBox="0 0 225 217">
+  <defs><clipPath id="disc"><circle cx="100" cy="108" r="77"/></clipPath></defs>
+  <g transform="translate(95 122) scale(1.09) translate(-100 -108)" fill="#B78E40">
+    <path d="M 84 31.7 A 78 78 0 1 0 116 31.7" fill="none" stroke="#B78E40" stroke-width="7"/>
+    <path d="M100 2 L108 82 L100 102 L92 82 Z"/>
+    <path clip-path="url(#disc)" d="M20 160 L44 144 L72 118 L90 134 L104 127 L124 146 L142 137 L180 160 L180 200 L20 200 Z"/>
+  </g>
+</svg>

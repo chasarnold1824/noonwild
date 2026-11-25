@@ -1,5 +1,5 @@
 ---
-title: "The Maya City That Sold for Fifty Dollars: What John Lloyd Stephens Bought at Copán, and How to See It Now."
+title: "The Maya City That Sold for Fifty Dollars."
 dek: "In 1839 an American envoy paid fifty dollars for one of the great Maya cities and planned to ship it to New York. Here is what he actually bought, why Copán still repays the awkward journey, and how I would plan it."
 category: Explorer stories
 region: Honduras

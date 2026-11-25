@@ -1,5 +1,5 @@
 ---
-title: "What to Expect at a Luxury Safari Camp: The Tent, the Day, the Rules, and the Three Camps I Would Book First."
+title: "What to Expect at a Luxury Safari Camp."
 dek: "In 1924 Martin and Osa Johnson built a home by a crater lake in northern Kenya and lived there for years, filming wildlife from a camp with a garden, a darkroom and a pink bathroom. Today's best safari camps descend from that idea. Here is what a night under canvas is really like, and where I would put you first."
 category: Expert advice
 region: Kenya, Botswana and Tanzania
