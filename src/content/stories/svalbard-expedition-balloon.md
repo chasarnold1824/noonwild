@@ -1,5 +1,5 @@
 ---
-title: "Svalbard by Expedition Ship: Where Andrée's Balloon Left for the North Pole in 1897, and How to Follow It Now."
+title: "Svalbard, Where Andrée's Balloon Took Off."
 dek: "In July 1897 three Swedes lifted off from a bay in northwest Svalbard in a hydrogen balloon, bound for the North Pole. Their film was developed 33 years later. Here is what happened, what is left at both ends of the journey, and how I would sail it."
 category: Explorer stories
 region: Svalbard

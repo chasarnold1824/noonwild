@@ -1,5 +1,5 @@
 ---
-title: "The Namib Like Henno Martin: Where Two Geologists Hid From the War for Two and a Half Years, When to Go, and the Desert Lodges Worth the Flight."
+title: "The Namib, Where Two Geologists Hid From War."
 dek: "In May 1940 two German geologists drove into Namibia's Kuiseb Canyon with a dog called Otto and stayed until 1942, living on what they could hunt. Their canyon is on the road from Sossusvlei to the coast, and these are the five desert lodges I would build the trip around."
 category: Destination guide
 region: Namibia

@@ -35,7 +35,7 @@ sources:                           # every factual claim must trace to one of th
 
 ## Editorial rules
 
-1. **Every story is about a real place you can travel to today**, told through a real person who went there first. Titles read like travel guides: "How to plan a trip to X like Y", "How to visit X", "The [surprising true story], and how to see it now."
+1. **Every story is about a real place you can travel to today**, told through a real person who went there first. Titles are short, 8 words or fewer: the place plus the hook ("Torres del Paine's First Tourist.", "Murchison Falls, Where Hemingway Crashed Twice."). The dek carries the detail.
 2. **Two sources for every historical fact**, linked in `sources`. If only one source supports a claim, soften it or cut it. Never invent quotes, dates or numbers.
 3. **Hotels and lodges:** name only properties that are real and currently operating, and only facts their own site or a major guide (MICHELIN, Forbes Travel Guide) confirms. Do not imply a partnership unless one is signed.
 4. **Format and voice:** follow `.claude/skills/noonwild-story/references/format.md` (Noon Travel house style). **No em dashes.** Use commas, colons or full stops.
