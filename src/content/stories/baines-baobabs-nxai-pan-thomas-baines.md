@@ -1,5 +1,5 @@
 ---
-title: "Baines' Baobabs: The Trees a Sacked Expedition Artist Painted in 1862, Still Standing, and How to See Them in Botswana Now."
+title: "Baines' Baobabs, Still Standing Since 1862."
 dek: "On 21 May 1862 Thomas Baines, three years after Livingstone threw him off the Zambezi Expedition, sat down at the edge of a salt pan and painted a clump of baobabs. They are still there, looking almost exactly as he left them. Here is his story, and how I would go and find them."
 category: Explorer stories
 region: Botswana
