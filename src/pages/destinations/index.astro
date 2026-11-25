@@ -1,7 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { cdn } from '../../img.mjs';
-import { destinations } from '../../data/destinations';
+import { allStories } from '../../lib';
+import { withAutoDestinations, storyInDestination } from '../../data/destinations';
+const stories = await allStories();
+// Only destinations with at least one published story, so every card opens a page with stories on it.
+const destinations = withAutoDestinations(stories).filter(d => stories.some(s => storyInDestination(s.data.region, d)));
 ---
 <Base title="Destinations" description="Where Noon Wild travels: the wild places with the best stories, and the finest lodges at their edge.">
   <div class="container dest-page" data-theme="dark">
