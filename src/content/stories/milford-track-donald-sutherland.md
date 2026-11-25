@@ -1,5 +1,5 @@
 ---
-title: "The Hermit of Milford Sound: How Donald Sutherland Found New Zealand's Tallest Waterfall, and How to Walk the Milford Track to It Now."
+title: "The Hermit of Milford Sound."
 dek: "In 1877 a Scottish ex-soldier rowed into Milford Sound with a dog, drew up plans for a city with a population of one, and three years later saw a waterfall he insisted was the highest on earth. It was not, but the track that grew up around it is still the walk New Zealand is proudest of. Here is his story, and how I would walk it this season."
 category: Explorer stories
 region: New Zealand
