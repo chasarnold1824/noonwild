@@ -1,5 +1,5 @@
 ---
-title: "How to Visit Floreana, the Galápagos Island With an Unsolved Mystery: Which Ship, Which Month, and Where to Stay."
+title: "Floreana, the Galápagos Island With a Mystery."
 dek: "In 1934 a self-styled empress and her lover walked out of their camp on Floreana and were never seen again. The island is now one of the best days of any Galápagos voyage, and the ship you choose decides how you spend it."
 category: Destination guide
 region: Galápagos

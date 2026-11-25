@@ -1,5 +1,5 @@
 ---
-title: "Banff to Jasper on the Icefields Parkway: Where Mary Schäffer Rode to Maligne Lake in 1908, When to Go, and the Lodges Worth the Drive."
+title: "Banff to Jasper, the Mary Schäffer Way."
 dek: "In 1908 a Philadelphia widow followed a map sketched from a Stoney man's boyhood memory and became the first outsider to explore Maligne Lake. Her route is now the Icefields Parkway, and these are the five places I would sleep along it."
 category: Destination guide
 region: Canadian Rockies

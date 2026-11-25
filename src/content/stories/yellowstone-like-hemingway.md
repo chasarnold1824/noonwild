@@ -1,5 +1,5 @@
 ---
-title: How to plan a trip to Yellowstone like Hemingway
+title: "Yellowstone Like Hemingway."
 dek: Through the 1930s Hemingway kept returning to a ranch just past Yellowstone's northeast gate. Here is how to travel his corner of the park now, in summer or in snow.
 category: Destination guide
 region: Yellowstone
