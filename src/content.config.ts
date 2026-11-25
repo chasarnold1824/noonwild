@@ -16,7 +16,7 @@ const stories = defineCollection({
     imageCredit: z.string(),               // e.g. "Image courtesy of Sage Lodge.", "Photo: Chas Arnold."
 
     featured: z.boolean().default(false),
-    draft: z.boolean().default(false),     // drafts show as "Coming soon" cards and get no page
+    draft: z.boolean().default(false),     // drafts are hidden everywhere and get no page
     author: z.string().default('Chas Arnold'),
     authorRole: z.string().default('Noon Wild Advisor'),
     keyTakeaways: z.array(z.string()).default([]),

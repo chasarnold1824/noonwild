@@ -6,12 +6,14 @@ Noon Wild's one addition: every story is anchored in a true explorer story. Ever
 
 ## Titles
 
-Long, specific, search-shaped, often a question and its answer, and they end with a full stop.
-- How to Plan a Gorilla Trek in Rwanda: Permits, Seasons, and the Lodges Worth the Climb.
-- Yellowstone Like Hemingway: Where He Stayed, When to Go, and Where to Stay Now.
-- Svalbard or Antarctica: Which Expedition to Book This Year, and on Which Ship.
-- [Lodge] Is Open, and It's Already the Best Safari Camp in [Region].
-- What to Know Before Your First Luxury Safari Camp.
+Short: 8 words or fewer, ending with a full stop (Chas's rule, November 2026). Name the place and the hook; the dek carries the rest (seasons, lodges, the promise).
+- Torres del Paine's First Tourist.
+- The Maya City That Sold for Fifty Dollars.
+- Murchison Falls, Where Hemingway Crashed Twice.
+- Baines' Baobabs, Still Standing Since 1862.
+- What to Expect at a Luxury Safari Camp.
+
+Do not stack clauses ("...: When to Go, Which Boat, and Where to Stay."). That detail goes in the dek and the H2s.
 
 ## Categories and how deep to go on hotels
 

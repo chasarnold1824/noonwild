@@ -1,5 +1,5 @@
 ---
-title: "How to plan a gorilla trek in Rwanda, and the hunter who saved them"
+title: "Rwanda's Gorillas and the Hunter Who Saved Them."
 dek: "Permits, seasons and lodges, plus the 1921 expedition that led to Africa's first national park."
 category: Destination guide
 region: Rwanda
