@@ -1,5 +1,5 @@
 ---
-title: "How to See Abu Simbel and the Valley of the Kings Like Belzoni: The Circus Strongman Who Dug Them Out, and Where to Stay on the Nile Now."
+title: "Abu Simbel and the Circus Strongman."
 dek: "In 1817 a six-foot-seven former circus strongman from Padua dug his way into Abu Simbel and found the finest tomb in the Valley of the Kings. Here is how to follow him up the Nile this winter, which boat to book, and which hotels are open while two of Egypt's great ones are rebuilt."
 category: Destination guide
 region: Egypt
