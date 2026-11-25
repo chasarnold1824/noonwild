@@ -126,10 +126,40 @@ const ogImage = new URL(image, Astro.site).toString();
     addEventListener('resize', updateStacks);
     updateStacks();
 
+    // Image parallax: each image sits slightly oversized in its frame and drifts as the frame crosses the screen.
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll<HTMLImageElement>('.article figure img').forEach(img => {
+        if (img.parentElement?.classList.contains('plx-frame')) return;
+        const frame = document.createElement('span');
+        frame.className = 'plx-frame';
+        img.replaceWith(frame);
+        frame.appendChild(img);
+      });
+      const sel = '.article .plx-frame > img, .card .thumb img, .row-card .thumb img, .feat-card > img, .dest-guide > img, .dest-card img';
+      const imgs = Array.from(document.querySelectorAll<HTMLImageElement>(sel));
+      const visible = new Set<HTMLImageElement>();
+      const vio = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? visible.add(e.target as HTMLImageElement) : visible.delete(e.target as HTMLImageElement)); onScroll(); }, { rootMargin: '100px 0px' });
+      imgs.forEach(img => { img.classList.add('plx'); vio.observe(img); });
+      let ticking = false;
+      const update = () => {
+        ticking = false;
+        const vh = innerHeight;
+        visible.forEach(img => {
+          const frame = img.parentElement!;
+          const r = frame.getBoundingClientRect();
+          const p = Math.max(-1, Math.min(1, (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2)));
+          img.style.setProperty('--py', `${(p * r.height * 0.1).toFixed(1)}px`);
+        });
+      };
+      const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+      addEventListener('scroll', onScroll, { passive: true });
+      addEventListener('resize', onScroll);
+      onScroll();
+    }
     // Story hero parallax
     const px = document.querySelector<HTMLElement>('.story-hero .px');
     if (px && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      addEventListener('scroll', () => { if (scrollY < innerHeight * 1.2) px.style.transform = `translate3d(0, ${scrollY * 0.18}px, 0)`; }, { passive: true });
+      addEventListener('scroll', () => { if (scrollY < innerHeight * 1.2) px.style.transform = `translate3d(0, ${scrollY * 0.3}px, 0)`; }, { passive: true });
     }
   </script>
 </body>
