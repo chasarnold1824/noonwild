@@ -1,5 +1,5 @@
 ---
-title: "Oman's Empty Quarter Like Bertram Thomas: The Sultan's Finance Minister Who Crossed It First, the Lost City He Pointed To, and Where to Stay Now."
+title: "The First Crossing of Oman's Empty Quarter."
 dek: "In December 1930 a quiet Englishman from a Somerset village walked out of Salalah and into the largest sand sea on earth, telling almost no one. Here is how he did it, the road to a lost city his guides showed him, and how I would see his desert this winter."
 category: Explorer stories
 region: Oman
