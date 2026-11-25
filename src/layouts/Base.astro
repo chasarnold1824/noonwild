@@ -148,7 +148,7 @@ const ogImage = new URL(image, Astro.site).toString();
           const frame = img.parentElement!;
           const r = frame.getBoundingClientRect();
           const p = Math.max(-1, Math.min(1, (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2)));
-          img.style.setProperty('--py', `${(p * r.height * 0.05).toFixed(1)}px`);
+          img.style.setProperty('--py', `${(p * r.height * 0.1).toFixed(1)}px`);
         });
       };
       const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
@@ -159,7 +159,7 @@ const ogImage = new URL(image, Astro.site).toString();
     // Story hero parallax
     const px = document.querySelector<HTMLElement>('.story-hero .px');
     if (px && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      addEventListener('scroll', () => { if (scrollY < innerHeight * 1.2) px.style.transform = `translate3d(0, ${scrollY * 0.18}px, 0)`; }, { passive: true });
+      addEventListener('scroll', () => { if (scrollY < innerHeight * 1.2) px.style.transform = `translate3d(0, ${scrollY * 0.3}px, 0)`; }, { passive: true });
     }
   </script>
 </body>
