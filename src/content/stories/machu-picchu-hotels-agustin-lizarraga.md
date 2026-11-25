@@ -1,5 +1,5 @@
 ---
-title: "Machu Picchu Like Agustín Lizárraga: The Farmer Who Signed the Wall Nine Years Before Bingham, When to Go, and the Hotels Worth the Train."
+title: "Machu Picchu, Nine Years Before Bingham."
 dek: "In July 1902 a Cusco farmer climbed to Machu Picchu and wrote his name in charcoal on the Temple of the Three Windows. Nine years later Hiram Bingham found it there. Here is how the ticket system works now, and the seven hotels I would build the trip around."
 category: Destination guide
 region: Peru
