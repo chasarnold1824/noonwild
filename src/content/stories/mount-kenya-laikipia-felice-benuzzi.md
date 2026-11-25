@@ -4,11 +4,11 @@ dek: "In January 1943 three Italian prisoners of war broke out of a British camp
 category: Destination guide
 region: Kenya
 date: 2026-11-25
-image: https://cdn.mos.cms.futurecdn.net/mzM3tLvTVpZDz97m2H6oX4-2560-80.jpg
-imageAlt: "Arijiju on the Borana Conservancy in Laikipia, Kenya, a stone house with grass roofs facing south towards Mount Kenya."
+image: https://images.unsplash.com/photo-1535703215941-fdfbcb818738?auto=format&fit=crop&w=2400&q=80
+imageAlt: "The snow-dusted summit peaks of Mount Kenya, Africa's second highest mountain, above the Laikipia plateau in central Kenya."
 imagePosition: "50% 55%"
-imageCredit: "Photo: Dook / Arijiju."
-imageSourceUrl: https://www.livingetc.com/features/kenyan-safari-lodge-arijiju-blends-french-country-decor-and-african-style
+imageCredit: "Image courtesy of Unsplash."
+imageSourceUrl: https://unsplash.com/photos/snow-covered-mountains-at-daytime-pwit6HBpVZ0
 featured: false
 draft: false
 keyTakeaways:
@@ -149,6 +149,8 @@ Four nights is the right number because Laikipia is not a game-drive-and-done sa
 These are the four places I would build a Mount Kenya trip around. Three are on private conservancies on the Laikipia plateau and the fourth sits right under the mountain at Nanyuki. They are very different, so read for the kind of trip you want, not the most famous name.
 
 ### The private house: Arijiju
+
+<figure><img src="https://cdn.mos.cms.futurecdn.net/mzM3tLvTVpZDz97m2H6oX4-2560-80.jpg" alt="Arijiju on the Borana Conservancy in Laikipia, Kenya, a stone house with grass roofs that faces south towards Mount Kenya." loading="lazy"><figcaption>Arijiju on the Borana Conservancy. Photo: Dook / <a href="https://www.livingetc.com/features/kenyan-safari-lodge-arijiju-blends-french-country-decor-and-african-style" rel="noopener">Arijiju</a>.</figcaption></figure>
 
 **Arijiju** is the most beautiful private house on the plateau, and it is taken by one group at a time. It sits on the Borana Conservancy, former cattle ranch land now run for black rhino, and it was finished in 2016 to a design by the London studio Michaelis Boyd. It is built into a low slope facing south, so every bedroom and the main living rooms look straight at Mount Kenya, with grass on the roofs, local stone and timber, solar power and a staircase cut into a rock outcrop at the entrance. There are five suites: three in the main house around a courtyard garden, and two in separate guest houses. What it has that the others do not is the sense of being someone's home, with a library, a cinema, a games room, a clay tennis court and a sprung-floor squash court kept out of sight, and a spa with a vaulted hammam, a wood-burning hot tub and a plunge pool, beside a cantilevered swimming pool. Days go to game drives and walks, horse riding, mountain biking and rhino tracking on Borana, and, for an extra charge, a helicopter up to fly-fish in the lakes of Mount Kenya. Meals are served wherever you like, on the terrace above the waterhole, by the pool or out in the bush. Agency rates for 2026 to 2027 run from about US$2,667 to US$3,467 per person per night sharing, fully inclusive of meals and selected drinks. For a family, or two couples who want the mountain to themselves, nothing in Kenya does it better.
 
